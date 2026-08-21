@@ -1,0 +1,846 @@
+{
+  "generated_at": "2026-08-20T18:41:46.982377+00:00",
+  "nodes": {
+    "02_sanskrit_structural_self_assimilating_model_v2_propagation_locality_update_scope": {
+      "code_fingerprint": "c07b10b952966080cd63b771d74e591774ed61e26457273e5984b4974a417ccd",
+      "label": "Propagation–Locality and Update-Scope Mechanism",
+      "last": "2026-08-20T17:28:53.599590+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T17:28:53.599590+00:00",
+          "outcome": "useful",
+          "q": "Should you detail what would be S0 and S1 first?"
+        },
+        {
+          "date": "2026-08-20T16:21:34.795024+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        }
+      ],
+      "score": 1.996584122,
+      "source_file": "02_Sanskrit_Structural_Self_Assimilating_Model_v2.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "02_sanskrit_structural_self_assimilating_model_v2_structural_assimilation_compiler": {
+      "code_fingerprint": "c07b10b952966080cd63b771d74e591774ed61e26457273e5984b4974a417ccd",
+      "label": "Structural Assimilation Compiler",
+      "last": "2026-08-20T17:28:53.599590+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T17:28:53.599590+00:00",
+          "outcome": "useful",
+          "q": "Should you detail what would be S0 and S1 first?"
+        },
+        {
+          "date": "2026-08-20T16:21:34.795024+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        },
+        {
+          "date": "2026-08-20T16:20:13.785647+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        },
+        {
+          "date": "2026-08-20T16:19:03.287295+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ1 Mechanism Specification and Contribution Boundary"
+        }
+      ],
+      "score": 3.992028001,
+      "source_file": "02_Sanskrit_Structural_Self_Assimilating_Model_v2.md",
+      "status": "preferred",
+      "uses": 4
+    },
+    "03_sanskrit_structural_self_assimilating_model_v2_research_architecture_and_protocol_strong_information_equivalent_controls": {
+      "code_fingerprint": "75a9ec5f167f90e4629438ac0ba91abf69c344706cd6dcb9bcb3d9646365fbf9",
+      "label": "Strong Information-Equivalent Controls",
+      "last": "2026-08-20T18:38:25.116834+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:38:25.116834+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 formal re-review of revised DQ1 M0 M1 contract version 0.2"
+        },
+        {
+          "date": "2026-08-20T18:22:37.094629+00:00",
+          "outcome": "useful",
+          "q": "Formal-semantics review of DQ1 M0 M1 contract for contradictions and underspecification"
+        },
+        {
+          "date": "2026-08-20T18:21:50.634472+00:00",
+          "outcome": "useful",
+          "q": "Audit Document 08 M0 M1 contract for cross-document alignment and DQ1 evidence omissions"
+        },
+        {
+          "date": "2026-08-20T17:28:53.599590+00:00",
+          "outcome": "useful",
+          "q": "Should you detail what would be S0 and S1 first?"
+        },
+        {
+          "date": "2026-08-20T17:27:17.506841+00:00",
+          "outcome": "useful",
+          "q": "Detail the S0 mechanism contract before S1 implementation"
+        }
+      ],
+      "score": 7.990817713,
+      "source_file": "03_Sanskrit_Structural_Self_Assimilating_Model_V2_Research_Architecture_and_Protocol.md",
+      "status": "preferred",
+      "uses": 8
+    },
+    "05_paninian_self_assimilating_model_gap_analysis_refactored_v2_structural_ladder_and_controls": {
+      "code_fingerprint": "0ed4562fc7b8b15d8c5870805c9b6c083280d3529e275a152584ea989f263d58",
+      "label": "Structural Ladder and Strong Controls",
+      "last": "2026-08-20T17:20:03.318023+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T17:20:03.318023+00:00",
+          "outcome": "useful",
+          "q": "Okay, should you build slice based approach to resolve this?"
+        }
+      ],
+      "score": 0.998689532,
+      "source_file": "05_Paninian_Self_Assimilating_Model_Gap_Analysis_Refactored_v2.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "05_paninian_self_assimilating_model_gap_analysis_refactored_v2_target_architecture": {
+      "code_fingerprint": "0ed4562fc7b8b15d8c5870805c9b6c083280d3529e275a152584ea989f263d58",
+      "label": "Target Architecture After Gap Resolution",
+      "last": "2026-08-20T16:21:34.795024+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:21:34.795024+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        },
+        {
+          "date": "2026-08-20T16:18:47.128866+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ1 Mechanism Specification and Contribution Boundary across Documents 01-07 and the pilot"
+        }
+      ],
+      "score": 1.995461183,
+      "source_file": "05_Paninian_Self_Assimilating_Model_Gap_Analysis_Refactored_v2.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_cost_ledgers": {
+      "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
+      "label": "Representation, Development, Deployment, and Lifecycle Cost Ledgers",
+      "last": "2026-08-20T16:03:17.763991+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:03:17.763991+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ2 and what it governs before confirmatory experimentation"
+        }
+      ],
+      "score": 0.997460295,
+      "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_dq1_mechanism_specification_and_contribution_boundary": {
+      "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
+      "label": "DQ1 Mechanism Specification and Contribution Boundary",
+      "last": "2026-08-20T18:38:25.116834+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:38:25.116834+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 formal re-review of revised DQ1 M0 M1 contract version 0.2"
+        },
+        {
+          "date": "2026-08-20T18:34:46.495002+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 re-review revised DQ1 M0 M1 contract v0.2 for remaining methodological blockers"
+        },
+        {
+          "date": "2026-08-20T18:33:52.738210+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 alignment audit of revised Document 08 and new Document 06 cross-link"
+        },
+        {
+          "date": "2026-08-20T18:22:37.094629+00:00",
+          "outcome": "useful",
+          "q": "Formal-semantics review of DQ1 M0 M1 contract for contradictions and underspecification"
+        },
+        {
+          "date": "2026-08-20T18:21:50.634472+00:00",
+          "outcome": "useful",
+          "q": "Audit Document 08 M0 M1 contract for cross-document alignment and DQ1 evidence omissions"
+        }
+      ],
+      "score": 13.983447666,
+      "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
+      "status": "preferred",
+      "uses": 14
+    },
+    "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_dq2_measurement_reasoning_and_fairness_contract": {
+      "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
+      "label": "DQ2 Measurement, Reasoning, and Fairness Contract",
+      "last": "2026-08-20T16:04:56.463595+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:04:56.463595+00:00",
+          "outcome": "useful",
+          "q": "Yes go ahead and trace."
+        },
+        {
+          "date": "2026-08-20T16:03:17.763991+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ2 and what it governs before confirmatory experimentation"
+        }
+      ],
+      "score": 1.994946918,
+      "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_dq3_data_annotation_and_tooling_readiness": {
+      "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
+      "label": "DQ3 Data, Annotation, and Tooling Readiness",
+      "last": "2026-08-20T18:33:52.738210+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:33:52.738210+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 alignment audit of revised Document 08 and new Document 06 cross-link"
+        },
+        {
+          "date": "2026-08-20T16:03:17.763991+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ2 and what it governs before confirmatory experimentation"
+        }
+      ],
+      "score": 1.997333482,
+      "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_dq5_graph_only_structural_signal": {
+      "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
+      "label": "DQ5 Graph-Only Structural Signal Diagnostic",
+      "last": "2026-08-20T18:33:52.738210+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:33:52.738210+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 alignment audit of revised Document 08 and new Document 06 cross-link"
+        },
+        {
+          "date": "2026-08-20T17:20:03.318023+00:00",
+          "outcome": "useful",
+          "q": "Okay, should you build slice based approach to resolve this?"
+        }
+      ],
+      "score": 1.998562718,
+      "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "07_mission_and_falsification_contract_architecture_stop_rules": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Architecture Stop and Narrowing Rules",
+      "last": "2026-08-20T17:27:17.506841+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T17:27:17.506841+00:00",
+          "outcome": "useful",
+          "q": "Detail the S0 mechanism contract before S1 implementation"
+        },
+        {
+          "date": "2026-08-20T17:20:03.318023+00:00",
+          "outcome": "useful",
+          "q": "Okay, should you build slice based approach to resolve this?"
+        },
+        {
+          "date": "2026-08-20T16:20:13.785647+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        }
+      ],
+      "score": 2.995226373,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 3
+    },
+    "07_mission_and_falsification_contract_baseline_applicability_and_competence": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Baseline Applicability, Competence, and Equal-Budget Contract",
+      "last": "2026-08-20T18:34:46.495002+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:34:46.495002+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 re-review revised DQ1 M0 M1 contract v0.2 for remaining methodological blockers"
+        },
+        {
+          "date": "2026-08-20T18:21:37.735200+00:00",
+          "outcome": "useful",
+          "q": "Red-team DQ1 M0 M1 contract for causal attribution, leakage, controls, thresholds, and stage conflation"
+        },
+        {
+          "date": "2026-08-20T16:04:56.463595+00:00",
+          "outcome": "useful",
+          "q": "Yes go ahead and trace."
+        }
+      ],
+      "score": 2.997050861,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 3
+    },
+    "07_mission_and_falsification_contract_causal_estimands_and_exposure_control": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Causal Estimands and Exposure-Control Contract",
+      "last": "2026-08-20T18:38:25.116834+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:38:25.116834+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 formal re-review of revised DQ1 M0 M1 contract version 0.2"
+        },
+        {
+          "date": "2026-08-20T18:34:46.495002+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 re-review revised DQ1 M0 M1 contract v0.2 for remaining methodological blockers"
+        },
+        {
+          "date": "2026-08-20T18:22:37.094629+00:00",
+          "outcome": "useful",
+          "q": "Formal-semantics review of DQ1 M0 M1 contract for contradictions and underspecification"
+        },
+        {
+          "date": "2026-08-20T18:21:37.735200+00:00",
+          "outcome": "useful",
+          "q": "Red-team DQ1 M0 M1 contract for causal attribution, leakage, controls, thresholds, and stage conflation"
+        },
+        {
+          "date": "2026-08-20T16:21:34.795024+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        }
+      ],
+      "score": 5.994668298,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 6
+    },
+    "07_mission_and_falsification_contract_contract_authority": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Contract Authority",
+      "last": "2026-08-20T18:33:52.738210+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:33:52.738210+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 alignment audit of revised Document 08 and new Document 06 cross-link"
+        },
+        {
+          "date": "2026-08-20T18:21:50.634472+00:00",
+          "outcome": "useful",
+          "q": "Audit Document 08 M0 M1 contract for cross-document alignment and DQ1 evidence omissions"
+        },
+        {
+          "date": "2026-08-20T15:41:30.523082+00:00",
+          "outcome": "useful",
+          "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
+        }
+      ],
+      "score": 2.996664978,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 3
+    },
+    "07_mission_and_falsification_contract_document": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Sanskrit-Derived Efficient LLM Mission and Falsification Contract Version 0.3",
+      "last": "2026-08-20T15:41:30.523082+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T15:41:30.523082+00:00",
+          "outcome": "useful",
+          "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
+        }
+      ],
+      "score": 0.997111665,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_engineering_mission": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Engineering Mission",
+      "last": "2026-08-20T15:41:30.523082+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T15:41:30.523082+00:00",
+          "outcome": "useful",
+          "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
+        }
+      ],
+      "score": 0.997111665,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_information_equivalence": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Information-Equivalence and Leakage Contract",
+      "last": "2026-08-20T18:38:25.116834+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:38:25.116834+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 formal re-review of revised DQ1 M0 M1 contract version 0.2"
+        },
+        {
+          "date": "2026-08-20T18:34:46.495002+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 re-review revised DQ1 M0 M1 contract v0.2 for remaining methodological blockers"
+        },
+        {
+          "date": "2026-08-20T18:22:37.094629+00:00",
+          "outcome": "useful",
+          "q": "Formal-semantics review of DQ1 M0 M1 contract for contradictions and underspecification"
+        },
+        {
+          "date": "2026-08-20T18:21:50.634472+00:00",
+          "outcome": "useful",
+          "q": "Audit Document 08 M0 M1 contract for cross-document alignment and DQ1 evidence omissions"
+        },
+        {
+          "date": "2026-08-20T18:21:37.735200+00:00",
+          "outcome": "useful",
+          "q": "Red-team DQ1 M0 M1 contract for causal attribution, leakage, controls, thresholds, and stage conflation"
+        }
+      ],
+      "score": 5.996369553,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 6
+    },
+    "07_mission_and_falsification_contract_integrated_training_frontier_threshold": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Two-Size, Three-Budget Integrated Training-Frontier Threshold",
+      "last": "2026-08-20T15:50:33.536956+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        }
+      ],
+      "score": 0.997256467,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_model_development_sequence": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Frozen-Model to Integrated Small-Model Development Sequence",
+      "last": "2026-08-20T17:20:03.318023+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T17:20:03.318023+00:00",
+          "outcome": "useful",
+          "q": "Okay, should you build slice based approach to resolve this?"
+        }
+      ],
+      "score": 0.998689532,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_primary_accuracy_endpoint": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Primary Verified Accuracy Endpoint",
+      "last": "2026-08-20T16:04:56.463595+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:04:56.463595+00:00",
+          "outcome": "useful",
+          "q": "Yes go ahead and trace."
+        },
+        {
+          "date": "2026-08-20T16:03:17.763991+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ2 and what it governs before confirmatory experimentation"
+        },
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        },
+        {
+          "date": "2026-08-20T15:41:30.523082+00:00",
+          "outcome": "useful",
+          "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
+        }
+      ],
+      "score": 3.98931505,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 4
+    },
+    "07_mission_and_falsification_contract_primary_lifecycle_cost": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Primary Lifecycle-Cost Measure",
+      "last": "2026-08-20T18:34:46.495002+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:34:46.495002+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 re-review revised DQ1 M0 M1 contract v0.2 for remaining methodological blockers"
+        },
+        {
+          "date": "2026-08-20T16:04:56.463595+00:00",
+          "outcome": "useful",
+          "q": "Yes go ahead and trace."
+        },
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        },
+        {
+          "date": "2026-08-20T15:41:30.523082+00:00",
+          "outcome": "useful",
+          "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
+        }
+      ],
+      "score": 3.991742315,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 4
+    },
+    "07_mission_and_falsification_contract_primary_reasoning_endpoint": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Primary Out-of-Distribution Reasoning Endpoint",
+      "last": "2026-08-20T16:04:56.463595+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:04:56.463595+00:00",
+          "outcome": "useful",
+          "q": "Yes go ahead and trace."
+        },
+        {
+          "date": "2026-08-20T16:03:17.763991+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ2 and what it governs before confirmatory experimentation"
+        },
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        },
+        {
+          "date": "2026-08-20T15:41:30.523082+00:00",
+          "outcome": "useful",
+          "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
+        }
+      ],
+      "score": 3.98931505,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 4
+    },
+    "07_mission_and_falsification_contract_primary_recurring_deployment_cost": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Primary Recurring Deployment-Cost Measure",
+      "last": "2026-08-20T15:50:33.536956+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        }
+      ],
+      "score": 0.997256467,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_provisional_threshold_schedule": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Provisional Numerical Schedule Pending DQ2",
+      "last": "2026-08-20T16:04:56.463595+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:04:56.463595+00:00",
+          "outcome": "useful",
+          "q": "Yes go ahead and trace."
+        },
+        {
+          "date": "2026-08-20T16:03:17.763991+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ2 and what it governs before confirmatory experimentation"
+        }
+      ],
+      "score": 1.994946918,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "07_mission_and_falsification_contract_same_system_line_evidence_join": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Same-System-Line Full-Thesis Evidence Join",
+      "last": "2026-08-20T15:50:33.536956+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        }
+      ],
+      "score": 0.997256467,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_sealed_result_lock": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Sealed-Result Threshold and Amendment Lock",
+      "last": "2026-08-20T16:04:56.463595+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:04:56.463595+00:00",
+          "outcome": "useful",
+          "q": "Yes go ahead and trace."
+        }
+      ],
+      "score": 0.997486623,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_secondary_measures_and_floors": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Secondary Measures and Capability Floors",
+      "last": "2026-08-20T15:50:33.536956+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        }
+      ],
+      "score": 0.997256467,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_specific_attribution_threshold": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Specific Sanskrit/Pāṇinian Attribution Threshold",
+      "last": "2026-08-20T18:33:52.738210+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:33:52.738210+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 alignment audit of revised Document 08 and new Document 06 cross-link"
+        },
+        {
+          "date": "2026-08-20T18:21:37.735200+00:00",
+          "outcome": "useful",
+          "q": "Red-team DQ1 M0 M1 contract for causal attribution, leakage, controls, thresholds, and stage conflation"
+        },
+        {
+          "date": "2026-08-20T17:27:17.506841+00:00",
+          "outcome": "useful",
+          "q": "Detail the S0 mechanism contract before S1 implementation"
+        },
+        {
+          "date": "2026-08-20T16:21:34.795024+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        },
+        {
+          "date": "2026-08-20T16:20:13.785647+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        }
+      ],
+      "score": 9.980862938,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 10
+    },
+    "07_mission_and_falsification_contract_statistical_confirmation_rule": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Statistical and Sealed-Confirmation Rule",
+      "last": "2026-08-20T16:04:56.463595+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:04:56.463595+00:00",
+          "outcome": "useful",
+          "q": "Yes go ahead and trace."
+        }
+      ],
+      "score": 0.997486623,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "07_mission_and_falsification_contract_tier_a_threshold": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Tier A Full Version 1 System-Win Threshold",
+      "last": "2026-08-20T16:20:13.785647+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:20:13.785647+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        },
+        {
+          "date": "2026-08-20T16:03:17.763991+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ2 and what it governs before confirmatory experimentation"
+        },
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        },
+        {
+          "date": "2026-08-20T15:41:30.523082+00:00",
+          "outcome": "useful",
+          "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
+        }
+      ],
+      "score": 3.989559772,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 4
+    },
+    "07_mission_and_falsification_contract_token_mechanism_threshold": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Token or Representation Mechanism Threshold",
+      "last": "2026-08-20T17:20:03.318023+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T17:20:03.318023+00:00",
+          "outcome": "useful",
+          "q": "Okay, should you build slice based approach to resolve this?"
+        },
+        {
+          "date": "2026-08-20T16:21:34.795024+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        },
+        {
+          "date": "2026-08-20T16:20:13.785647+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        },
+        {
+          "date": "2026-08-20T16:19:03.287295+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ1 Mechanism Specification and Contribution Boundary"
+        },
+        {
+          "date": "2026-08-20T15:50:33.536956+00:00",
+          "outcome": "useful",
+          "q": "yes go ahead and trace that next."
+        }
+      ],
+      "score": 4.989142837,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 5
+    },
+    "07_mission_and_falsification_contract_version_1_inclusions": {
+      "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
+      "label": "Version 1 Included Experiments and Controls",
+      "last": "2026-08-20T18:33:52.738210+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:33:52.738210+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 alignment audit of revised Document 08 and new Document 06 cross-link"
+        },
+        {
+          "date": "2026-08-20T17:28:53.599590+00:00",
+          "outcome": "useful",
+          "q": "Should you detail what would be S0 and S1 first?"
+        },
+        {
+          "date": "2026-08-20T17:27:17.506841+00:00",
+          "outcome": "useful",
+          "q": "Detail the S0 mechanism contract before S1 implementation"
+        },
+        {
+          "date": "2026-08-20T16:21:34.795024+00:00",
+          "outcome": "useful",
+          "q": "Go ahead with DQ1 tracing."
+        }
+      ],
+      "score": 3.995262805,
+      "source_file": "07_Mission_and_Falsification_Contract.md",
+      "status": "preferred",
+      "uses": 4
+    },
+    "sanskrit_structural_efficiency_and_novelty_isolation_pilot_go_pivot_stop_rules": {
+      "code_fingerprint": "79c23633d748af909a43bc1513834e070dbb87e8aacb01f9524a9680a8c5b4f2",
+      "label": "Pilot Go, Pivot, and Stop Rules",
+      "last": "2026-08-20T18:34:46.495002+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:34:46.495002+00:00",
+          "outcome": "useful",
+          "q": "Pass 2 re-review revised DQ1 M0 M1 contract v0.2 for remaining methodological blockers"
+        },
+        {
+          "date": "2026-08-20T18:21:50.634472+00:00",
+          "outcome": "useful",
+          "q": "Audit Document 08 M0 M1 contract for cross-document alignment and DQ1 evidence omissions"
+        }
+      ],
+      "score": 1.999567687,
+      "source_file": "Sanskrit_Structural_Efficiency_and_Novelty_Isolation_Pilot.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "sanskrit_structural_efficiency_and_novelty_isolation_pilot_matched_experimental_conditions": {
+      "code_fingerprint": "79c23633d748af909a43bc1513834e070dbb87e8aacb01f9524a9680a8c5b4f2",
+      "label": "Matched Experimental Conditions",
+      "last": "2026-08-20T16:18:47.128866+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T16:18:47.128866+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ1 Mechanism Specification and Contribution Boundary across Documents 01-07 and the pilot"
+        }
+      ],
+      "score": 0.997708224,
+      "source_file": "Sanskrit_Structural_Efficiency_and_Novelty_Isolation_Pilot.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "sanskrit_structural_efficiency_and_novelty_isolation_pilot_novelty_controls": {
+      "code_fingerprint": "79c23633d748af909a43bc1513834e070dbb87e8aacb01f9524a9680a8c5b4f2",
+      "label": "Novelty-Isolation and Causal Controls",
+      "last": "2026-08-20T17:28:53.599590+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T17:28:53.599590+00:00",
+          "outcome": "useful",
+          "q": "Should you detail what would be S0 and S1 first?"
+        },
+        {
+          "date": "2026-08-20T16:18:47.128866+00:00",
+          "outcome": "useful",
+          "q": "Trace DQ1 Mechanism Specification and Contribution Boundary across Documents 01-07 and the pilot"
+        }
+      ],
+      "score": 1.996539387,
+      "source_file": "Sanskrit_Structural_Efficiency_and_Novelty_Isolation_Pilot.md",
+      "status": "preferred",
+      "uses": 2
+    }
+  },
+  "version": 1
+}
