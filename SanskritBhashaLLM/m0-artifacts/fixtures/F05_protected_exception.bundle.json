@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.1", "bundle_id": "f05_protected_exception",
+  "signature": {
+    "types": ["entity"],
+    "predicates": [
+      {"name": "library_item", "arg_types": ["entity"]},
+      {"name": "rare_codex", "arg_types": ["entity"]},
+      {"name": "may_borrow", "arg_types": ["entity"]}
+    ],
+    "relation_types": [], "permitted_comparisons": []
+  },
+  "constants": [
+    {"id": "vel", "entity_type": "entity"},
+    {"id": "scroll2", "entity_type": "entity"}
+  ],
+  "concepts": [], "context_keys": [{"id": "ctx_main", "representation_neutral_definition": "default"}],
+  "anchor_intents": [{"id": "anchor_main", "observable_semantic_context": "default", "context_key_refs": ["ctx_main"]}],
+  "facts": [
+    {"id": "f_lib_vel", "predicate": "library_item", "arguments": [{"kind": "constant", "constant_id": "vel"}], "polarity": "positive", "context_key": "GLOBAL"},
+    {"id": "f_lib_scr", "predicate": "library_item", "arguments": [{"kind": "constant", "constant_id": "scroll2"}], "polarity": "positive", "context_key": "GLOBAL"},
+    {"id": "f_rare_vel", "predicate": "rare_codex", "arguments": [{"kind": "constant", "constant_id": "vel"}], "polarity": "positive", "context_key": "GLOBAL"}
+  ],
+  "neutral_events": [], "neutral_role_edges": [],
+  "analysis_groups": [], "analyses": [],
+  "requests": [
+    {"id": "req1", "request_context": {}, "anchor_intent_id": "anchor_main", "query_ids": ["q_vel", "q_scr"], "resource_config_id": "rc1"}
+  ],
+  "task_theory": {
+    "strict_rules": [],
+    "defaults": [
+      {"claim_id": "d_borrow", "body": {"literals": [
+        {"predicate": "library_item", "args": [{"kind": "variable", "variable": "I"}], "polarity": "positive"}
+      ]}, "head": {"predicate": "may_borrow", "args": [{"kind": "variable", "variable": "I"}], "polarity": "positive"}}
+    ],
+    "exception_claims": [
+      {"claim_id": "e_rare", "condition": {"literals": [
+        {"predicate": "rare_codex", "args": [{"kind": "variable", "variable": "I"}], "polarity": "positive"}
+      ]}, "target_rule_claim_id": "d_borrow", "target_substitution_pattern": {"bindings": [{"variable": "I", "term": {"kind": "constant", "constant_id": "vel"}}]}}
+    ]
+  },
+  "queries": [
+    {"id": "q_vel", "proposition": {"predicate": "may_borrow", "arguments": [{"kind": "constant", "constant_id": "vel"}], "polarity": "positive"}, "aggregation_policy_id": "skeptical-v1"},
+    {"id": "q_scr", "proposition": {"predicate": "may_borrow", "arguments": [{"kind": "constant", "constant_id": "scroll2"}], "polarity": "positive"}, "aggregation_policy_id": "skeptical-v1"}
+  ],
+  "resource_configs": [
+    {"id": "rc1", "logical_step_limit": 1000, "grounded_application_limit": 1000, "inheritance_path_limit": 1000, "branch_limit": 100, "trace_limit": 5000}
+  ]
+}

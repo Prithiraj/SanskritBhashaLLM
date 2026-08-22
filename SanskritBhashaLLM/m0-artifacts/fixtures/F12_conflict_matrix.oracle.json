@@ -1,0 +1,38 @@
+{
+ "fixture_id": "DQ1-M0-F12-conflict-matrix",
+ "expected_execution_status": "COMPLETE",
+ "assertions": [
+  {
+   "id": "A1",
+   "property": "query_status[q_px]",
+   "expect": "ENTAILED",
+   "reason": "opposite-polarity source facts on DIFFERENT entities never conflict"
+  },
+  {
+   "id": "A2",
+   "property": "query_status[q_py]",
+   "expect": "CONTRADICTED"
+  },
+  {
+   "id": "A3",
+   "property": "query_status[q_qz]",
+   "expect": "CONFLICT",
+   "reason": "strict r_nq derives not-q(z) against source q(z): indefeasible opposition remains visible as conflict (paraconsistent; nothing else follows)"
+  },
+  {
+   "id": "A4",
+   "property": "query_status[q_rw]",
+   "expect": "CONTRADICTED",
+   "reason": "default d_r(w) suppressed by strict not-r(w); strict conclusion stands"
+  },
+  {
+   "id": "A5",
+   "property": "grounded_applications",
+   "expect": "(d_r,{U->w}) status=suppressed_by_indefeasible_opposition; strict applications fired"
+  }
+ ],
+ "invariants_checked": [
+  "conflict visibility (11.9)",
+  "stratified stability (11.13)"
+ ]
+}

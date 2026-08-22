@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sanskritbhashallm.org/m0/schemas/common.schema.json",
+  "title": "PDSGRO-0.1 M0 Common Definitions",
+  "description": "Shared definitions for source-bundle and compiled-instance schemas. Structural constraints only; occurrence, typing, stratification, and acyclicity rules from Doc 08 sections 9-10 are enforced by the validator, not by JSON Schema.",
+  "type": "object",
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_.-]*$",
+      "maxLength": 128
+    },
+    "version_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "polarity": {
+      "enum": [
+        "positive",
+        "negative"
+      ]
+    },
+    "visibility_class": {
+      "enum": [
+        "model-visible",
+        "compiler-visible",
+        "evaluator-only",
+        "provenance-only"
+      ]
+    },
+    "stratum": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_ref": {
+      "type": "string",
+      "description": "Dotted path into the neutral source bundle B, e.g. 'T.rules.r7' or 'F_N.f12'."
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source_ref"
+      },
+      "minItems": 1,
+      "description": "Every compiled object must carry at least one source_ref into B (Doc 08 section 8.2)."
+    },
+    "provenance_ref": {
+      "description": "Reference into the provenance manifest; never model-visible unless symmetrically declared.",
+      "$ref": "#/$defs/identifier"
+    },
+    "term_constant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "constant_id"
+      ],
+      "properties": {
+        "kind": {
+          "const": "constant"
+        },
+        "constant_id": {
+          "$ref": "#/$defs/identifier"
+        }
+      }
+    },
+    "term_variable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "variable"
+      ],
+      "properties": {
+        "kind": {
+          "const": "variable"
+        },
+        "variable": {
+          "$ref": "#/$defs/identifier"
+        }
+      }
+    },
+    "term": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/term_constant"
+        },
+        {
+          "$ref": "#/$defs/term_variable"
+        }
+      ]
+    },
+    "literal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate",
+        "args",
+        "polarity"
+      ],
+      "properties": {
+        "predicate": {
+          "$ref": "#/$defs/identifier"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/term"
+          },
+          "minItems": 0
+        },
+        "polarity": {
+          "$ref": "#/$defs/polarity"
+        }
+      }
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "op",
+        "left",
+        "right"
+      ],
+      "description": "Total, non-generative comparison from Sigma.permitted_comparisons only.",
+      "properties": {
+        "op": {
+          "$ref": "#/$defs/identifier"
+        },
+        "left": {
+          "$ref": "#/$defs/term"
+        },
+        "right": {
+          "$ref": "#/$defs/term"
+        }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "literals"
+      ],
+      "description": "Finite conjunction of literals plus optional frozen total comparisons.",
+      "properties": {
+        "literals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/literal"
+          }
+        },
+        "comparisons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/comparison"
+          }
+        }
+      }
+    },
+    "substitution_pattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bindings"
+      ],
+      "description": "Pattern over rule variables selecting which grounded applications a control matches.",
+      "properties": {
+        "bindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "variable",
+              "term"
+            ],
+            "properties": {
+              "variable": {
+                "$ref": "#/$defs/identifier"
+              },
+              "term": {
+                "$ref": "#/$defs/term"
+              }
+            }
+          }
+        }
+      }
+    },
+    "query_status": {
+      "enum": [
+        "ENTAILED",
+        "CONTRADICTED",
+        "UNKNOWN",
+        "NO_VALID_ANALYSIS",
+        "CONFLICT",
+        "AMBIGUOUS"
+      ],
+      "description": "Aggregated output of skeptical-v1 (Doc 08 section 10.8). BOTH is branch-local only and aggregates to CONFLICT."
+    },
+    "analysis_status": {
+      "enum": [
+        "NONE",
+        "SINGLE",
+        "MULTIPLE"
+      ]
+    },
+    "execution_status": {
+      "enum": [
+        "COMPLETE",
+        "INVALID_INSTANCE",
+        "RESOURCE_EXHAUSTED"
+      ]
+    },
+    "evaluation_state": {
+      "enum": [
+        "EVALUATED",
+        "NOT_EVALUATED"
+      ]
+    },
+    "resource_config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "logical_step_limit",
+        "grounded_application_limit",
+        "inheritance_path_limit",
+        "branch_limit",
+        "trace_limit"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "logical_step_limit": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "grounded_application_limit": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "inheritance_path_limit": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "branch_limit": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "trace_limit": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "compiler_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "compiler_id",
+        "version",
+        "attribution_label",
+        "treatment_signature_hash",
+        "source_schema_hash",
+        "target_schema_hash",
+        "mapping_hashes",
+        "configuration_hash",
+        "implementation_hash"
+      ],
+      "properties": {
+        "compiler_id": {
+          "const": "Compile_T"
+        },
+        "version": {
+          "$ref": "#/$defs/version_string"
+        },
+        "attribution_label": {
+          "const": "generic_sanskrit_inspired_scope_machinery"
+        },
+        "treatment_signature_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "source_schema_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "target_schema_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "mapping_hashes": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^MT-[1-9]$"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/sha256"
+          },
+          "minProperties": 9,
+          "maxProperties": 9
+        },
+        "configuration_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "implementation_hash": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+ "fixture_id": "DQ1-M0-F10-two-analysis-groups",
+ "expected_execution_status": "COMPLETE",
+ "assertions": [
+  {
+   "id": "A1",
+   "property": "branches",
+   "expect": "exactly 4 branches = exact Cartesian product {a1,a2} x {b1,b2}; no combination dropped without an explicit compatibility violation"
+  },
+  {
+   "id": "A2",
+   "property": "query_status[q1]",
+   "expect": "ENTAILED",
+   "reason": "derived_common holds in every retained branch"
+  },
+  {
+   "id": "A3",
+   "property": "analysis_status",
+   "expect": "MULTIPLE"
+  }
+ ],
+ "invariants_checked": [
+  "ambiguity preservation (11.7)",
+  "order invariance (11.14)"
+ ]
+}

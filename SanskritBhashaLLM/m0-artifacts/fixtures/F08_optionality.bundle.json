@@ -1,0 +1,161 @@
+{
+ "schema_version": "0.1.1",
+ "bundle_id": "f08_optionality",
+ "signature": {
+  "types": [
+   "entity"
+  ],
+  "predicates": [
+   {
+    "name": "service_available",
+    "arg_types": []
+   },
+   {
+    "name": "view_on_site",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "request_scan",
+    "arg_types": [
+     "entity"
+    ]
+   }
+  ],
+  "relation_types": [],
+  "permitted_comparisons": []
+ },
+ "constants": [
+  {
+   "id": "doc",
+   "entity_type": "entity"
+  }
+ ],
+ "concepts": [],
+ "context_keys": [
+  {
+   "id": "ctx_main",
+   "representation_neutral_definition": "default"
+  }
+ ],
+ "anchor_intents": [
+  {
+   "id": "anchor_main",
+   "observable_semantic_context": "default",
+   "context_key_refs": [
+    "ctx_main"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "f_avail",
+   "predicate": "service_available",
+   "arguments": [],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  }
+ ],
+ "neutral_events": [],
+ "neutral_role_edges": [],
+ "analysis_groups": [],
+ "analyses": [],
+ "requests": [
+  {
+   "id": "req1",
+   "request_context": {},
+   "anchor_intent_id": "anchor_main",
+   "query_ids": [
+    "q_view"
+   ],
+   "resource_config_id": "rc1"
+  }
+ ],
+ "task_theory": {
+  "strict_rules": [],
+  "defaults": [
+   {
+    "claim_id": "r_view",
+    "body": {
+     "literals": [
+      {
+       "predicate": "service_available",
+       "args": [],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "view_on_site",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "I"
+      }
+     ],
+     "polarity": "positive"
+    }
+   },
+   {
+    "claim_id": "r_scan",
+    "body": {
+     "literals": [
+      {
+       "predicate": "service_available",
+       "args": [],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "request_scan",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "I"
+      }
+     ],
+     "polarity": "positive"
+    }
+   }
+  ],
+  "optional_choice_claims": [
+   {
+    "claim_id": "og_service",
+    "member_rule_claim_ids": [
+     "r_view",
+     "r_scan"
+    ],
+    "minimum_choices": 1,
+    "maximum_choices": 1
+   }
+  ]
+ },
+ "queries": [
+  {
+   "id": "q_view",
+   "proposition": {
+    "predicate": "view_on_site",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "doc"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  }
+ ],
+ "resource_configs": [
+  {
+   "id": "rc1",
+   "logical_step_limit": 1000,
+   "grounded_application_limit": 1000,
+   "inheritance_path_limit": 1000,
+   "branch_limit": 100,
+   "trace_limit": 5000
+  }
+ ]
+}

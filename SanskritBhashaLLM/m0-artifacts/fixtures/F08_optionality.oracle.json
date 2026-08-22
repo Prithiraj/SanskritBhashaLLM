@@ -1,0 +1,26 @@
+{
+ "fixture_id": "DQ1-M0-F08-optionality",
+ "expected_execution_status": "COMPLETE",
+ "assertions": [
+  {
+   "id": "A1",
+   "property": "branches",
+   "expect": "exactly 2 retained branches: selection {r_view} and selection {r_scan} - every permitted optional selection became a pre-inference branch"
+  },
+  {
+   "id": "A2",
+   "property": "query_status[q_view]",
+   "expect": "AMBIGUOUS",
+   "reason": "TRUE under {r_view}, NEITHER under {r_scan}; mixture aggregates as AMBIGUOUS (section 10.8 rule 6)"
+  },
+  {
+   "id": "A3",
+   "property": "optional_selections",
+   "expect": "both selections visible with group og_service, min=max=1 respected"
+  }
+ ],
+ "invariants_checked": [
+  "optionality preservation (11.8)",
+  "ambiguity preservation (11.7)"
+ ]
+}

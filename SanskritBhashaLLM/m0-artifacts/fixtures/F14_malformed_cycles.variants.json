@@ -1,0 +1,782 @@
+{
+ "variants_file": "F14",
+ "note": "Variants are COMPILED instances (the section 10.1 validator operates post-compilation, pre-branch-construction). Each must fail closed with its expected_error_code. compiler_manifest/source_bundle_hash carry placeholder hashes; real hashes bind at M0 freeze.",
+ "variants": [
+  {
+   "variant_id": "f14a",
+   "expected_error_code": "SCOPE_CYCLE",
+   "bundle": {
+    "schema_version": "0.1.1",
+    "instance_id": "f14a_compiled",
+    "compiler_manifest": {
+     "compiler_id": "Compile_T",
+     "version": "0.0.0-fixture-placeholder",
+     "attribution_label": "generic_sanskrit_inspired_scope_machinery",
+     "treatment_signature_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "source_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "target_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "mapping_hashes": {
+      "MT-1": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-2": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-3": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-4": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-5": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-6": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-7": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-8": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-9": "0000000000000000000000000000000000000000000000000000000000000000"
+     },
+     "configuration_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "implementation_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "source_bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "signature": {
+     "types": [
+      "entity"
+     ],
+     "predicates": [
+      {
+       "name": "p",
+       "arg_types": [
+        "entity"
+       ]
+      },
+      {
+       "name": "q",
+       "arg_types": [
+        "entity"
+       ]
+      }
+     ],
+     "relation_types": [],
+     "permitted_comparisons": []
+    },
+    "constants": [
+     {
+      "id": "a",
+      "entity_type": "entity"
+     },
+     {
+      "id": "b",
+      "entity_type": "entity"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "predicate": "p",
+      "arguments": [
+       {
+        "kind": "constant",
+        "constant_id": "a"
+       }
+      ],
+      "polarity": "positive",
+      "scope_id": "sc_root",
+      "source_refs": [
+       "F_N.f1"
+      ]
+     }
+    ],
+    "compiled_events": [],
+    "compiled_role_edges": [],
+    "analysis_groups": [],
+    "analyses": [],
+    "requests": [
+     {
+      "id": "req1",
+      "request_context": {},
+      "scope_anchor": "sc_root",
+      "query_ids": [
+       "q1"
+      ],
+      "resource_config_id": "rc1",
+      "source_refs": [
+       "K_N.req1"
+      ]
+     }
+    ],
+    "scopes": [
+     {
+      "id": "sc_root",
+      "parent_id_or_null": null,
+      "activation_condition": {
+       "literals": []
+      },
+      "source_refs": [
+       "T"
+      ]
+     },
+     {
+      "id": "s1",
+      "parent_id_or_null": "s2",
+      "activation_condition": {
+       "literals": []
+      },
+      "source_refs": [
+       "T"
+      ]
+     },
+     {
+      "id": "s2",
+      "parent_id_or_null": "s1",
+      "activation_condition": {
+       "literals": []
+      },
+      "source_refs": [
+       "T"
+      ]
+     }
+    ],
+    "inheritance_edges": [],
+    "rules": [],
+    "exceptions": [],
+    "blocks": [],
+    "priority_edges": [],
+    "optional_groups": [],
+    "constraints": [],
+    "queries": [
+     {
+      "id": "q1",
+      "proposition": {
+       "predicate": "p",
+       "arguments": [
+        {
+         "kind": "constant",
+         "constant_id": "a"
+        }
+       ],
+       "polarity": "positive"
+      },
+      "aggregation_policy_id": "skeptical-v1"
+     }
+    ],
+    "resource_configs": [
+     {
+      "id": "rc1",
+      "logical_step_limit": 1000,
+      "grounded_application_limit": 1000,
+      "inheritance_path_limit": 1000,
+      "branch_limit": 100,
+      "trace_limit": 5000
+     }
+    ]
+   }
+  },
+  {
+   "variant_id": "f14b",
+   "expected_error_code": "INHERITANCE_CYCLE",
+   "bundle": {
+    "schema_version": "0.1.1",
+    "instance_id": "f14b_compiled",
+    "compiler_manifest": {
+     "compiler_id": "Compile_T",
+     "version": "0.0.0-fixture-placeholder",
+     "attribution_label": "generic_sanskrit_inspired_scope_machinery",
+     "treatment_signature_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "source_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "target_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "mapping_hashes": {
+      "MT-1": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-2": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-3": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-4": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-5": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-6": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-7": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-8": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-9": "0000000000000000000000000000000000000000000000000000000000000000"
+     },
+     "configuration_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "implementation_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "source_bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "signature": {
+     "types": [
+      "entity"
+     ],
+     "predicates": [
+      {
+       "name": "p",
+       "arg_types": [
+        "entity"
+       ]
+      },
+      {
+       "name": "q",
+       "arg_types": [
+        "entity"
+       ]
+      }
+     ],
+     "relation_types": [],
+     "permitted_comparisons": []
+    },
+    "constants": [
+     {
+      "id": "a",
+      "entity_type": "entity"
+     },
+     {
+      "id": "b",
+      "entity_type": "entity"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "predicate": "p",
+      "arguments": [
+       {
+        "kind": "constant",
+        "constant_id": "a"
+       }
+      ],
+      "polarity": "positive",
+      "scope_id": "sc_root",
+      "source_refs": [
+       "F_N.f1"
+      ]
+     }
+    ],
+    "compiled_events": [],
+    "compiled_role_edges": [],
+    "analysis_groups": [],
+    "analyses": [],
+    "requests": [
+     {
+      "id": "req1",
+      "request_context": {},
+      "scope_anchor": "sc_root",
+      "query_ids": [
+       "q1"
+      ],
+      "resource_config_id": "rc1",
+      "source_refs": [
+       "K_N.req1"
+      ]
+     }
+    ],
+    "scopes": [
+     {
+      "id": "sc_root",
+      "parent_id_or_null": null,
+      "activation_condition": {
+       "literals": []
+      },
+      "source_refs": [
+       "T"
+      ]
+     }
+    ],
+    "inheritance_edges": [
+     {
+      "id": "e1",
+      "source_scope_or_object": "a",
+      "target_scope_or_object": "b",
+      "permitted_properties": [
+       "p"
+      ],
+      "scope_id": "sc_root",
+      "source_refs": [
+       "T.inheritance_permissions.i1"
+      ]
+     },
+     {
+      "id": "e2",
+      "source_scope_or_object": "b",
+      "target_scope_or_object": "a",
+      "permitted_properties": [
+       "p"
+      ],
+      "scope_id": "sc_root",
+      "source_refs": [
+       "T.inheritance_permissions.i2"
+      ]
+     }
+    ],
+    "rules": [],
+    "exceptions": [],
+    "blocks": [],
+    "priority_edges": [],
+    "optional_groups": [],
+    "constraints": [],
+    "queries": [
+     {
+      "id": "q1",
+      "proposition": {
+       "predicate": "p",
+       "arguments": [
+        {
+         "kind": "constant",
+         "constant_id": "a"
+        }
+       ],
+       "polarity": "positive"
+      },
+      "aggregation_policy_id": "skeptical-v1"
+     }
+    ],
+    "resource_configs": [
+     {
+      "id": "rc1",
+      "logical_step_limit": 1000,
+      "grounded_application_limit": 1000,
+      "inheritance_path_limit": 1000,
+      "branch_limit": 100,
+      "trace_limit": 5000
+     }
+    ]
+   }
+  },
+  {
+   "variant_id": "f14c",
+   "expected_error_code": "PRIORITY_CYCLE",
+   "bundle": {
+    "schema_version": "0.1.1",
+    "instance_id": "f14c_compiled",
+    "compiler_manifest": {
+     "compiler_id": "Compile_T",
+     "version": "0.0.0-fixture-placeholder",
+     "attribution_label": "generic_sanskrit_inspired_scope_machinery",
+     "treatment_signature_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "source_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "target_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "mapping_hashes": {
+      "MT-1": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-2": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-3": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-4": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-5": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-6": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-7": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-8": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-9": "0000000000000000000000000000000000000000000000000000000000000000"
+     },
+     "configuration_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "implementation_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "source_bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "signature": {
+     "types": [
+      "entity"
+     ],
+     "predicates": [
+      {
+       "name": "p",
+       "arg_types": [
+        "entity"
+       ]
+      },
+      {
+       "name": "q",
+       "arg_types": [
+        "entity"
+       ]
+      }
+     ],
+     "relation_types": [],
+     "permitted_comparisons": []
+    },
+    "constants": [
+     {
+      "id": "a",
+      "entity_type": "entity"
+     },
+     {
+      "id": "b",
+      "entity_type": "entity"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "predicate": "p",
+      "arguments": [
+       {
+        "kind": "constant",
+        "constant_id": "a"
+       }
+      ],
+      "polarity": "positive",
+      "scope_id": "sc_root",
+      "source_refs": [
+       "F_N.f1"
+      ]
+     }
+    ],
+    "compiled_events": [],
+    "compiled_role_edges": [],
+    "analysis_groups": [],
+    "analyses": [],
+    "requests": [
+     {
+      "id": "req1",
+      "request_context": {},
+      "scope_anchor": "sc_root",
+      "query_ids": [
+       "q1"
+      ],
+      "resource_config_id": "rc1",
+      "source_refs": [
+       "K_N.req1"
+      ]
+     }
+    ],
+    "scopes": [
+     {
+      "id": "sc_root",
+      "parent_id_or_null": null,
+      "activation_condition": {
+       "literals": []
+      },
+      "source_refs": [
+       "T"
+      ]
+     }
+    ],
+    "inheritance_edges": [],
+    "rules": [
+     {
+      "id": "d1",
+      "kind": "default",
+      "body": {
+       "literals": [
+        {
+         "predicate": "p",
+         "args": [
+          {
+           "kind": "variable",
+           "variable": "X"
+          }
+         ],
+         "polarity": "positive"
+        }
+       ]
+      },
+      "head": {
+       "predicate": "q",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      },
+      "scope_id": "sc_root",
+      "stratum": 1,
+      "source_refs": [
+       "T.defaults.d1"
+      ]
+     },
+     {
+      "id": "d2",
+      "kind": "default",
+      "body": {
+       "literals": [
+        {
+         "predicate": "p",
+         "args": [
+          {
+           "kind": "variable",
+           "variable": "X"
+          }
+         ],
+         "polarity": "positive"
+        }
+       ]
+      },
+      "head": {
+       "predicate": "q",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "negative"
+      },
+      "scope_id": "sc_root",
+      "stratum": 1,
+      "source_refs": [
+       "T.defaults.d2"
+      ]
+     }
+    ],
+    "exceptions": [],
+    "blocks": [],
+    "priority_edges": [
+     {
+      "id": "pc1",
+      "higher_rule_id": "d1",
+      "lower_rule_id": "d2",
+      "shared_argument_alignment": [
+       "X"
+      ],
+      "condition": {
+       "literals": []
+      },
+      "scope_id": "sc_root",
+      "evaluation_stratum": 1,
+      "source_refs": [
+       "T.priority_claims.pc1"
+      ]
+     },
+     {
+      "id": "pc2",
+      "higher_rule_id": "d2",
+      "lower_rule_id": "d1",
+      "shared_argument_alignment": [
+       "X"
+      ],
+      "condition": {
+       "literals": []
+      },
+      "scope_id": "sc_root",
+      "evaluation_stratum": 1,
+      "source_refs": [
+       "T.priority_claims.pc2"
+      ]
+     }
+    ],
+    "optional_groups": [],
+    "constraints": [],
+    "queries": [
+     {
+      "id": "q1",
+      "proposition": {
+       "predicate": "p",
+       "arguments": [
+        {
+         "kind": "constant",
+         "constant_id": "a"
+        }
+       ],
+       "polarity": "positive"
+      },
+      "aggregation_policy_id": "skeptical-v1"
+     }
+    ],
+    "resource_configs": [
+     {
+      "id": "rc1",
+      "logical_step_limit": 1000,
+      "grounded_application_limit": 1000,
+      "inheritance_path_limit": 1000,
+      "branch_limit": 100,
+      "trace_limit": 5000
+     }
+    ]
+   }
+  },
+  {
+   "variant_id": "f14d",
+   "expected_error_code": "STRATIFICATION_CYCLE",
+   "bundle": {
+    "schema_version": "0.1.1",
+    "instance_id": "f14d_compiled",
+    "compiler_manifest": {
+     "compiler_id": "Compile_T",
+     "version": "0.0.0-fixture-placeholder",
+     "attribution_label": "generic_sanskrit_inspired_scope_machinery",
+     "treatment_signature_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "source_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "target_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "mapping_hashes": {
+      "MT-1": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-2": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-3": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-4": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-5": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-6": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-7": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-8": "0000000000000000000000000000000000000000000000000000000000000000",
+      "MT-9": "0000000000000000000000000000000000000000000000000000000000000000"
+     },
+     "configuration_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "implementation_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "source_bundle_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "signature": {
+     "types": [
+      "entity"
+     ],
+     "predicates": [
+      {
+       "name": "p",
+       "arg_types": [
+        "entity"
+       ]
+      },
+      {
+       "name": "q",
+       "arg_types": [
+        "entity"
+       ]
+      }
+     ],
+     "relation_types": [],
+     "permitted_comparisons": []
+    },
+    "constants": [
+     {
+      "id": "a",
+      "entity_type": "entity"
+     },
+     {
+      "id": "b",
+      "entity_type": "entity"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "predicate": "p",
+      "arguments": [
+       {
+        "kind": "constant",
+        "constant_id": "a"
+       }
+      ],
+      "polarity": "positive",
+      "scope_id": "sc_root",
+      "source_refs": [
+       "F_N.f1"
+      ]
+     }
+    ],
+    "compiled_events": [],
+    "compiled_role_edges": [],
+    "analysis_groups": [],
+    "analyses": [],
+    "requests": [
+     {
+      "id": "req1",
+      "request_context": {},
+      "scope_anchor": "sc_root",
+      "query_ids": [
+       "q1"
+      ],
+      "resource_config_id": "rc1",
+      "source_refs": [
+       "K_N.req1"
+      ]
+     }
+    ],
+    "scopes": [
+     {
+      "id": "sc_root",
+      "parent_id_or_null": null,
+      "activation_condition": {
+       "literals": []
+      },
+      "source_refs": [
+       "T"
+      ]
+     }
+    ],
+    "inheritance_edges": [],
+    "rules": [
+     {
+      "id": "g1",
+      "kind": "default",
+      "body": {
+       "literals": [
+        {
+         "predicate": "q",
+         "args": [
+          {
+           "kind": "variable",
+           "variable": "X"
+          }
+         ],
+         "polarity": "positive"
+        }
+       ]
+      },
+      "head": {
+       "predicate": "p",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      },
+      "scope_id": "sc_root",
+      "stratum": 1,
+      "source_refs": [
+       "T.defaults.g1"
+      ]
+     },
+     {
+      "id": "g2",
+      "kind": "default",
+      "body": {
+       "literals": [
+        {
+         "predicate": "p",
+         "args": [
+          {
+           "kind": "variable",
+           "variable": "X"
+          }
+         ],
+         "polarity": "positive"
+        }
+       ]
+      },
+      "head": {
+       "predicate": "q",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      },
+      "scope_id": "sc_root",
+      "stratum": 1,
+      "source_refs": [
+       "T.defaults.g2"
+      ]
+     }
+    ],
+    "exceptions": [],
+    "blocks": [],
+    "priority_edges": [],
+    "optional_groups": [],
+    "constraints": [],
+    "queries": [
+     {
+      "id": "q1",
+      "proposition": {
+       "predicate": "p",
+       "arguments": [
+        {
+         "kind": "constant",
+         "constant_id": "a"
+        }
+       ],
+       "polarity": "positive"
+      },
+      "aggregation_policy_id": "skeptical-v1"
+     }
+    ],
+    "resource_configs": [
+     {
+      "id": "rc1",
+      "logical_step_limit": 1000,
+      "grounded_application_limit": 1000,
+      "inheritance_path_limit": 1000,
+      "branch_limit": 100,
+      "trace_limit": 5000
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+  "fixture_id": "DQ1-M0-F02-inherited-context",
+  "expected_execution_status": "COMPLETE",
+  "assertions": [
+    {"id": "A1", "property": "query_status[q1]", "expect": "ENTAILED", "reason": "permitted parent property reaches the child via materialized inheritance"},
+    {"id": "A2", "property": "supporting_paths", "expect": "exactly one path parent_p -> child_c recorded as supporting and unblocked"},
+    {"id": "A3", "property": "commitment", "expect": "has_property(child_c) committed as indefeasible branch support (Doc 08 section 10.4)"}
+  ],
+  "invariants_checked": ["path completeness (11.11)", "stratified stability (11.13)"]
+}

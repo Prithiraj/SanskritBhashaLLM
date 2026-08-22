@@ -1,0 +1,190 @@
+{
+ "schema_version": "0.1.1",
+ "bundle_id": "f11_no_valid_analysis",
+ "signature": {
+  "types": [
+   "entity"
+  ],
+  "predicates": [
+   {
+    "name": "flag_one",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "flag_two",
+    "arg_types": [
+     "entity"
+    ]
+   }
+  ],
+  "relation_types": [],
+  "permitted_comparisons": []
+ },
+ "constants": [
+  {
+   "id": "n",
+   "entity_type": "entity"
+  }
+ ],
+ "concepts": [],
+ "context_keys": [
+  {
+   "id": "ctx_main",
+   "representation_neutral_definition": "default"
+  }
+ ],
+ "anchor_intents": [
+  {
+   "id": "anchor_main",
+   "observable_semantic_context": "default",
+   "context_key_refs": [
+    "ctx_main"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "af1",
+   "predicate": "flag_one",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "n"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "af2",
+   "predicate": "flag_two",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "n"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  }
+ ],
+ "neutral_events": [],
+ "neutral_role_edges": [],
+ "analysis_groups": [
+  {
+   "id": "g",
+   "selection_cardinality_equals_one": true,
+   "member_analysis_ids": [
+    "a1",
+    "a2"
+   ]
+  }
+ ],
+ "analyses": [
+  {
+   "id": "a1",
+   "group_id": "g",
+   "bindings": [
+    {
+     "variable": "X",
+     "constant_id": "n"
+    }
+   ],
+   "assumed_fact_refs": [
+    "af1"
+   ]
+  },
+  {
+   "id": "a2",
+   "group_id": "g",
+   "bindings": [
+    {
+     "variable": "X",
+     "constant_id": "n"
+    }
+   ],
+   "assumed_fact_refs": [
+    "af2"
+   ]
+  }
+ ],
+ "requests": [
+  {
+   "id": "req1",
+   "request_context": {},
+   "anchor_intent_id": "anchor_main",
+   "query_ids": [
+    "q1"
+   ],
+   "resource_config_id": "rc1"
+  }
+ ],
+ "task_theory": {
+  "strict_rules": [],
+  "defaults": [],
+  "hard_constraints": [
+   {
+    "claim_id": "c_rej_one",
+    "condition": {
+     "literals": [
+      {
+       "predicate": "flag_one",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    }
+   },
+   {
+    "claim_id": "c_rej_two",
+    "condition": {
+     "literals": [
+      {
+       "predicate": "flag_two",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "queries": [
+  {
+   "id": "q1",
+   "proposition": {
+    "predicate": "flag_one",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "n"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  }
+ ],
+ "resource_configs": [
+  {
+   "id": "rc1",
+   "logical_step_limit": 1000,
+   "grounded_application_limit": 1000,
+   "inheritance_path_limit": 1000,
+   "branch_limit": 100,
+   "trace_limit": 5000
+  }
+ ]
+}

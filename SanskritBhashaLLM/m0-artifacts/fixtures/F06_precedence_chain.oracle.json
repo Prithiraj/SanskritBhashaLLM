@@ -1,0 +1,11 @@
+{
+  "fixture_id": "DQ1-M0-F06-precedence-chain",
+  "expected_execution_status": "COMPLETE",
+  "assertions": [
+    {"id": "A1", "property": "query_status[q1]", "expect": "ENTAILED", "reason": "transitive closure of acyclic chain d_spec > d_odd > d_gen resolves the conflict in favour of d_spec"},
+    {"id": "A2", "property": "grounded_applications", "expect": "(d_spec,{X->t}) fired; (d_odd,{X->t}) defeated_by_priority via pair (d_spec,d_odd); (d_gen,{X->t}) defeated_by_priority via pair (d_odd,d_gen)"},
+    {"id": "A3", "property": "priority_grounds", "expect": "transitive pair (d_spec,d_gen) recorded as ordering-only: same-polarity heads never defeat (Doc 08 section 10.5 step 8)"},
+    {"id": "A4", "property": "trace", "expect": "priority edges instantiated only after exception and indefeasible-support filtering; grounds canonically sorted by control class and identifier"}
+  ],
+  "invariants_checked": ["explicit precedence (11.6)", "order invariance (11.14)"]
+}

@@ -1,0 +1,50 @@
+{
+ "fixture_id": "DQ1-M0-F16-combined-clean-room",
+ "expected_execution_status": "COMPLETE",
+ "assertions": [
+  {
+   "id": "A1",
+   "property": "query_status[q1]",
+   "expect": "CONTRADICTED",
+   "reason": "per Doc 08 section 16.2: strict negative conclusion retained; general borrowing default generated then defeated"
+  },
+  {
+   "id": "A2",
+   "property": "branches_constructed",
+   "expect": "4 = 2 analyses x 2 optional selections; compatibility constraint c_no_manual_sc rejects exactly the two ordinary-manual branches"
+  },
+  {
+   "id": "A3",
+   "property": "branches_retained",
+   "expect": "exactly 2: (a_codex x view_on_site) and (a_codex x request_scan); no ordinary-manual branch remains"
+  },
+  {
+   "id": "A4",
+   "property": "inheritance",
+   "expect": "registered_member(researcher) materialized via doctoral_class edge; catalogued(vel) materialized; circulating BLOCKED on inh_lib_vel by blk_circ_rare and recorded counterfactually"
+  },
+  {
+   "id": "A5",
+   "property": "grounded_applications",
+   "expect": "(d_borrow,{M->researcher,I->vel}) instantiated then defeated_by_exception e_rare; (r_sc_neg,{I->vel,M->researcher}) fired"
+  },
+  {
+   "id": "A6",
+   "property": "sense_ambiguity",
+   "expect": "original two-sense ambiguity appears in trace before constraint rejection"
+  },
+  {
+   "id": "A7",
+   "property": "scope_activation",
+   "expect": "sc_special active via ctx_special_collections from request context; sc_root active as root"
+  },
+  {
+   "id": "A8",
+   "property": "isolation",
+   "expect": "no unrelated fact changes; every decision carries a trace path"
+  }
+ ],
+ "invariants_checked": [
+  "all of 11.1-11.22 exercised at least once across F01-F16"
+ ]
+}

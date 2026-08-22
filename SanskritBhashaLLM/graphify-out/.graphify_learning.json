@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T18:41:46.982377+00:00",
+  "generated_at": "2026-08-22T16:00:19.434520+00:00",
   "nodes": {
     "02_sanskrit_structural_self_assimilating_model_v2_propagation_locality_update_scope": {
       "code_fingerprint": "c07b10b952966080cd63b771d74e591774ed61e26457273e5984b4974a417ccd",
@@ -17,7 +17,7 @@
           "q": "Go ahead with DQ1 tracing."
         }
       ],
-      "score": 1.996584122,
+      "score": 1.911366809,
       "source_file": "02_Sanskrit_Structural_Self_Assimilating_Model_v2.md",
       "status": "preferred",
       "uses": 2
@@ -25,8 +25,18 @@
     "02_sanskrit_structural_self_assimilating_model_v2_structural_assimilation_compiler": {
       "code_fingerprint": "c07b10b952966080cd63b771d74e591774ed61e26457273e5984b4974a417ccd",
       "label": "Structural Assimilation Compiler",
-      "last": "2026-08-20T17:28:53.599590+00:00",
+      "last": "2026-08-20T18:48:48.065594+00:00",
       "provenance": [
+        {
+          "date": "2026-08-20T18:48:48.065594+00:00",
+          "outcome": "useful",
+          "q": "Go ahead!"
+        },
+        {
+          "date": "2026-08-20T18:48:03.555171+00:00",
+          "outcome": "useful",
+          "q": "Final Pass-2 closure check on Document 08 version 0.2 after formal-semantics patches"
+        },
         {
           "date": "2026-08-20T17:28:53.599590+00:00",
           "outcome": "useful",
@@ -41,17 +51,12 @@
           "date": "2026-08-20T16:20:13.785647+00:00",
           "outcome": "useful",
           "q": "Go ahead with DQ1 tracing."
-        },
-        {
-          "date": "2026-08-20T16:19:03.287295+00:00",
-          "outcome": "useful",
-          "q": "Trace DQ1 Mechanism Specification and Contribution Boundary"
         }
       ],
-      "score": 3.992028001,
+      "score": 5.736483149,
       "source_file": "02_Sanskrit_Structural_Self_Assimilating_Model_v2.md",
       "status": "preferred",
-      "uses": 4
+      "uses": 6
     },
     "03_sanskrit_structural_self_assimilating_model_v2_research_architecture_and_protocol_strong_information_equivalent_controls": {
       "code_fingerprint": "75a9ec5f167f90e4629438ac0ba91abf69c344706cd6dcb9bcb3d9646365fbf9",
@@ -84,7 +89,7 @@
           "q": "Detail the S0 mechanism contract before S1 implementation"
         }
       ],
-      "score": 7.990817713,
+      "score": 7.649757196,
       "source_file": "03_Sanskrit_Structural_Self_Assimilating_Model_V2_Research_Architecture_and_Protocol.md",
       "status": "preferred",
       "uses": 8
@@ -100,7 +105,7 @@
           "q": "Okay, should you build slice based approach to resolve this?"
         }
       ],
-      "score": 0.998689532,
+      "score": 0.956063911,
       "source_file": "05_Paninian_Self_Assimilating_Model_Gap_Analysis_Refactored_v2.md",
       "status": "tentative",
       "uses": 1
@@ -121,7 +126,7 @@
           "q": "Trace DQ1 Mechanism Specification and Contribution Boundary across Documents 01-07 and the pilot"
         }
       ],
-      "score": 1.995461183,
+      "score": 1.910291799,
       "source_file": "05_Paninian_Self_Assimilating_Model_Gap_Analysis_Refactored_v2.md",
       "status": "preferred",
       "uses": 2
@@ -137,7 +142,7 @@
           "q": "Trace DQ2 and what it governs before confirmatory experimentation"
         }
       ],
-      "score": 0.997460295,
+      "score": 0.95488714,
       "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
       "status": "tentative",
       "uses": 1
@@ -145,8 +150,23 @@
     "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_dq1_mechanism_specification_and_contribution_boundary": {
       "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
       "label": "DQ1 Mechanism Specification and Contribution Boundary",
-      "last": "2026-08-20T18:38:25.116834+00:00",
+      "last": "2026-08-20T18:48:48.065594+00:00",
       "provenance": [
+        {
+          "date": "2026-08-20T18:48:48.065594+00:00",
+          "outcome": "useful",
+          "q": "Go ahead!"
+        },
+        {
+          "date": "2026-08-20T18:48:03.555171+00:00",
+          "outcome": "useful",
+          "q": "Final Pass-2 closure check on Document 08 version 0.2 after formal-semantics patches"
+        },
+        {
+          "date": "2026-08-20T18:42:34.499800+00:00",
+          "outcome": "useful",
+          "q": "Final closure check Document 08 and pilot 1.1 for eight prior P1 findings"
+        },
         {
           "date": "2026-08-20T18:38:25.116834+00:00",
           "outcome": "useful",
@@ -156,33 +176,23 @@
           "date": "2026-08-20T18:34:46.495002+00:00",
           "outcome": "useful",
           "q": "Pass 2 re-review revised DQ1 M0 M1 contract v0.2 for remaining methodological blockers"
-        },
-        {
-          "date": "2026-08-20T18:33:52.738210+00:00",
-          "outcome": "useful",
-          "q": "Pass 2 alignment audit of revised Document 08 and new Document 06 cross-link"
-        },
-        {
-          "date": "2026-08-20T18:22:37.094629+00:00",
-          "outcome": "useful",
-          "q": "Formal-semantics review of DQ1 M0 M1 contract for contradictions and underspecification"
-        },
-        {
-          "date": "2026-08-20T18:21:50.634472+00:00",
-          "outcome": "useful",
-          "q": "Audit Document 08 M0 M1 contract for cross-document alignment and DQ1 evidence omissions"
         }
       ],
-      "score": 13.983447666,
+      "score": 16.258784107,
       "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
       "status": "preferred",
-      "uses": 14
+      "uses": 17
     },
     "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_dq2_measurement_reasoning_and_fairness_contract": {
       "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
       "label": "DQ2 Measurement, Reasoning, and Fairness Contract",
-      "last": "2026-08-20T16:04:56.463595+00:00",
+      "last": "2026-08-21T12:42:02.101303+00:00",
       "provenance": [
+        {
+          "date": "2026-08-21T12:42:02.101303+00:00",
+          "outcome": "useful",
+          "q": "Does the M0 artifact chain connect cleanly to reviewer quorum, hidden-fixture custody, and DQ2 authority?"
+        },
         {
           "date": "2026-08-20T16:04:56.463595+00:00",
           "outcome": "useful",
@@ -194,10 +204,10 @@
           "q": "Trace DQ2 and what it governs before confirmatory experimentation"
         }
       ],
-      "score": 1.994946918,
+      "score": 2.883855499,
       "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
       "status": "preferred",
-      "uses": 2
+      "uses": 3
     },
     "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_dq3_data_annotation_and_tooling_readiness": {
       "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
@@ -215,7 +225,7 @@
           "q": "Trace DQ2 and what it governs before confirmatory experimentation"
         }
       ],
-      "score": 1.997333482,
+      "score": 1.912084185,
       "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
       "status": "preferred",
       "uses": 2
@@ -236,10 +246,26 @@
           "q": "Okay, should you build slice based approach to resolve this?"
         }
       ],
-      "score": 1.998562718,
+      "score": 1.913260956,
       "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
       "status": "preferred",
       "uses": 2
+    },
+    "06_sanskrit_derived_efficient_llm_research_question_register_and_decision_tree_programme_decision_tree": {
+      "code_fingerprint": "4fed77518a72d7a585c9dbd3c8f4b8955d92c20cfec5dc3040684b37d7568a34",
+      "label": "Programme Decision Tree",
+      "last": "2026-08-20T18:48:48.065594+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:48:48.065594+00:00",
+          "outcome": "useful",
+          "q": "Go ahead!"
+        }
+      ],
+      "score": 0.957426251,
+      "source_file": "06_Sanskrit_Derived_Efficient_LLM_Research_Question_Register_and_Decision_Tree.md",
+      "status": "tentative",
+      "uses": 1
     },
     "07_mission_and_falsification_contract_architecture_stop_rules": {
       "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
@@ -262,7 +288,7 @@
           "q": "Go ahead with DQ1 tracing."
         }
       ],
-      "score": 2.995226373,
+      "score": 2.867385457,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 3
@@ -270,8 +296,13 @@
     "07_mission_and_falsification_contract_baseline_applicability_and_competence": {
       "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
       "label": "Baseline Applicability, Competence, and Equal-Budget Contract",
-      "last": "2026-08-20T18:34:46.495002+00:00",
+      "last": "2026-08-20T18:42:34.499800+00:00",
       "provenance": [
+        {
+          "date": "2026-08-20T18:42:34.499800+00:00",
+          "outcome": "useful",
+          "q": "Final closure check Document 08 and pilot 1.1 for eight prior P1 findings"
+        },
         {
           "date": "2026-08-20T18:34:46.495002+00:00",
           "outcome": "useful",
@@ -288,16 +319,21 @@
           "q": "Yes go ahead and trace."
         }
       ],
-      "score": 2.997050861,
+      "score": 3.826462684,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
-      "uses": 3
+      "uses": 4
     },
     "07_mission_and_falsification_contract_causal_estimands_and_exposure_control": {
       "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
       "label": "Causal Estimands and Exposure-Control Contract",
-      "last": "2026-08-20T18:38:25.116834+00:00",
+      "last": "2026-08-20T18:42:34.499800+00:00",
       "provenance": [
+        {
+          "date": "2026-08-20T18:42:34.499800+00:00",
+          "outcome": "useful",
+          "q": "Final closure check Document 08 and pilot 1.1 for eight prior P1 findings"
+        },
         {
           "date": "2026-08-20T18:38:25.116834+00:00",
           "outcome": "useful",
@@ -317,17 +353,12 @@
           "date": "2026-08-20T18:21:37.735200+00:00",
           "outcome": "useful",
           "q": "Red-team DQ1 M0 M1 contract for causal attribution, leakage, controls, thresholds, and stage conflation"
-        },
-        {
-          "date": "2026-08-20T16:21:34.795024+00:00",
-          "outcome": "useful",
-          "q": "Go ahead with DQ1 tracing."
         }
       ],
-      "score": 5.994668298,
+      "score": 6.69613715,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
-      "uses": 6
+      "uses": 7
     },
     "07_mission_and_falsification_contract_contract_authority": {
       "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
@@ -350,7 +381,7 @@
           "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
         }
       ],
-      "score": 2.996664978,
+      "score": 2.86876266,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 3
@@ -366,7 +397,7 @@
           "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
         }
       ],
-      "score": 0.997111665,
+      "score": 0.954553389,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -382,7 +413,7 @@
           "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
         }
       ],
-      "score": 0.997111665,
+      "score": 0.954553389,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -390,8 +421,23 @@
     "07_mission_and_falsification_contract_information_equivalence": {
       "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
       "label": "Information-Equivalence and Leakage Contract",
-      "last": "2026-08-20T18:38:25.116834+00:00",
+      "last": "2026-08-20T18:48:48.065594+00:00",
       "provenance": [
+        {
+          "date": "2026-08-20T18:48:48.065594+00:00",
+          "outcome": "useful",
+          "q": "Go ahead!"
+        },
+        {
+          "date": "2026-08-20T18:48:03.555171+00:00",
+          "outcome": "useful",
+          "q": "Final Pass-2 closure check on Document 08 version 0.2 after formal-semantics patches"
+        },
+        {
+          "date": "2026-08-20T18:42:34.499800+00:00",
+          "outcome": "useful",
+          "q": "Final closure check Document 08 and pilot 1.1 for eight prior P1 findings"
+        },
         {
           "date": "2026-08-20T18:38:25.116834+00:00",
           "outcome": "useful",
@@ -401,27 +447,12 @@
           "date": "2026-08-20T18:34:46.495002+00:00",
           "outcome": "useful",
           "q": "Pass 2 re-review revised DQ1 M0 M1 contract v0.2 for remaining methodological blockers"
-        },
-        {
-          "date": "2026-08-20T18:22:37.094629+00:00",
-          "outcome": "useful",
-          "q": "Formal-semantics review of DQ1 M0 M1 contract for contradictions and underspecification"
-        },
-        {
-          "date": "2026-08-20T18:21:50.634472+00:00",
-          "outcome": "useful",
-          "q": "Audit Document 08 M0 M1 contract for cross-document alignment and DQ1 evidence omissions"
-        },
-        {
-          "date": "2026-08-20T18:21:37.735200+00:00",
-          "outcome": "useful",
-          "q": "Red-team DQ1 M0 M1 contract for causal attribution, leakage, controls, thresholds, and stage conflation"
         }
       ],
-      "score": 5.996369553,
+      "score": 8.6126069,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
-      "uses": 6
+      "uses": 9
     },
     "07_mission_and_falsification_contract_integrated_training_frontier_threshold": {
       "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
@@ -434,7 +465,7 @@
           "q": "yes go ahead and trace that next."
         }
       ],
-      "score": 0.997256467,
+      "score": 0.954692012,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -450,7 +481,7 @@
           "q": "Okay, should you build slice based approach to resolve this?"
         }
       ],
-      "score": 0.998689532,
+      "score": 0.956063911,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -481,7 +512,7 @@
           "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
         }
       ],
-      "score": 3.98931505,
+      "score": 3.819044884,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 4
@@ -489,8 +520,13 @@
     "07_mission_and_falsification_contract_primary_lifecycle_cost": {
       "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
       "label": "Primary Lifecycle-Cost Measure",
-      "last": "2026-08-20T18:34:46.495002+00:00",
+      "last": "2026-08-20T18:42:34.499800+00:00",
       "provenance": [
+        {
+          "date": "2026-08-20T18:42:34.499800+00:00",
+          "outcome": "useful",
+          "q": "Final closure check Document 08 and pilot 1.1 for eight prior P1 findings"
+        },
         {
           "date": "2026-08-20T18:34:46.495002+00:00",
           "outcome": "useful",
@@ -512,10 +548,10 @@
           "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
         }
       ],
-      "score": 3.991742315,
+      "score": 4.778699161,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
-      "uses": 4
+      "uses": 5
     },
     "07_mission_and_falsification_contract_primary_reasoning_endpoint": {
       "code_fingerprint": "bc97f10a7bb0eb6f986a46a0a1f9866f8261a7c1ce5d5f3f25555b4d83a735b6",
@@ -543,7 +579,7 @@
           "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
         }
       ],
-      "score": 3.98931505,
+      "score": 3.819044884,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 4
@@ -559,7 +595,7 @@
           "q": "yes go ahead and trace that next."
         }
       ],
-      "score": 0.997256467,
+      "score": 0.954692012,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -580,7 +616,7 @@
           "q": "Trace DQ2 and what it governs before confirmatory experimentation"
         }
       ],
-      "score": 1.994946918,
+      "score": 1.909799484,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 2
@@ -596,7 +632,7 @@
           "q": "yes go ahead and trace that next."
         }
       ],
-      "score": 0.997256467,
+      "score": 0.954692012,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -612,7 +648,7 @@
           "q": "Yes go ahead and trace."
         }
       ],
-      "score": 0.997486623,
+      "score": 0.954912344,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -628,7 +664,7 @@
           "q": "yes go ahead and trace that next."
         }
       ],
-      "score": 0.997256467,
+      "score": 0.954692012,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -664,7 +700,7 @@
           "q": "Go ahead with DQ1 tracing."
         }
       ],
-      "score": 9.980862938,
+      "score": 9.554864198,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 10
@@ -680,7 +716,7 @@
           "q": "Yes go ahead and trace."
         }
       ],
-      "score": 0.997486623,
+      "score": 0.954912344,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "tentative",
       "uses": 1
@@ -711,7 +747,7 @@
           "q": "Yes. Why does the Mission and Falsification Contract connect all six major research communities? go ahead and trace it."
         }
       ],
-      "score": 3.989559772,
+      "score": 3.819279161,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 4
@@ -747,7 +783,7 @@
           "q": "yes go ahead and trace that next."
         }
       ],
-      "score": 4.989142837,
+      "score": 4.776198468,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 5
@@ -778,16 +814,307 @@
           "q": "Go ahead with DQ1 tracing."
         }
       ],
-      "score": 3.995262805,
+      "score": 3.82473878,
       "source_file": "07_Mission_and_Falsification_Contract.md",
       "status": "preferred",
       "uses": 4
     },
-    "sanskrit_structural_efficiency_and_novelty_isolation_pilot_go_pivot_stop_rules": {
-      "code_fingerprint": "79c23633d748af909a43bc1513834e070dbb87e8aacb01f9524a9680a8c5b4f2",
-      "label": "Pilot Go, Pivot, and Stop Rules",
-      "last": "2026-08-20T18:34:46.495002+00:00",
+    "08_dq1_mechanism_resolution_m0_m1_contract_dq1_m0_specification_freeze": {
+      "code_fingerprint": "b94da242db251d60830f6485ef83af984a09900e36b03fa8a621c54c884e67c0",
+      "label": "DQ1-M0 Mechanism Specification Freeze",
+      "last": "2026-08-21T12:22:14.770680+00:00",
       "provenance": [
+        {
+          "date": "2026-08-21T12:22:14.770680+00:00",
+          "outcome": "useful",
+          "q": "Why does graphify extract need API keys and how was Doc 08 indexed without one?"
+        }
+      ],
+      "score": 0.973746789,
+      "source_file": "08_DQ1_Mechanism_Resolution_M0_M1_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "08_dq1_mechanism_resolution_m0_m1_contract_golden_fixtures_f01_f16": {
+      "code_fingerprint": "b94da242db251d60830f6485ef83af984a09900e36b03fa8a621c54c884e67c0",
+      "label": "Public Golden Fixtures DQ1-M0-F01 to F16",
+      "last": "2026-08-21T17:53:06.498485+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T17:53:06.498485+00:00",
+          "outcome": "useful",
+          "q": "What do the 16 golden fixtures cover and how were they validated?"
+        }
+      ],
+      "score": 0.978929871,
+      "source_file": "08_DQ1_Mechanism_Resolution_M0_M1_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "08_dq1_mechanism_resolution_m0_m1_contract_hidden_acceptance_fixtures": {
+      "code_fingerprint": "b94da242db251d60830f6485ef83af984a09900e36b03fa8a621c54c884e67c0",
+      "label": "Hidden Acceptance Fixtures and Custody Specification",
+      "last": "2026-08-21T19:28:35.734485+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T19:28:35.734485+00:00",
+          "outcome": "useful",
+          "q": "What did the Pass 1/Pass 2 mapping-card review find and what does the custody spec pin down?"
+        },
+        {
+          "date": "2026-08-21T12:42:02.101303+00:00",
+          "outcome": "useful",
+          "q": "Does the M0 artifact chain connect cleanly to reviewer quorum, hidden-fixture custody, and DQ2 authority?"
+        }
+      ],
+      "score": 1.954486855,
+      "source_file": "08_DQ1_Mechanism_Resolution_M0_M1_Contract.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "08_dq1_mechanism_resolution_m0_m1_contract_m0_artifact_freeze_package": {
+      "code_fingerprint": "b94da242db251d60830f6485ef83af984a09900e36b03fa8a621c54c884e67c0",
+      "label": "M0 Freeze Package and Four-Reviewer Quorum",
+      "last": "2026-08-21T12:42:02.101303+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T12:42:02.101303+00:00",
+          "outcome": "useful",
+          "q": "Does the M0 artifact chain connect cleanly to reviewer quorum, hidden-fixture custody, and DQ2 authority?"
+        }
+      ],
+      "score": 0.974056016,
+      "source_file": "08_DQ1_Mechanism_Resolution_M0_M1_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "08_dq1_mechanism_resolution_m0_m1_contract_model_payload": {
+      "code_fingerprint": "b94da242db251d60830f6485ef83af984a09900e36b03fa8a621c54c884e67c0",
+      "label": "ModelPayload Pre-Solution Artifact",
+      "last": "2026-08-21T12:22:14.770680+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T12:22:14.770680+00:00",
+          "outcome": "useful",
+          "q": "Why does graphify extract need API keys and how was Doc 08 indexed without one?"
+        }
+      ],
+      "score": 0.973746789,
+      "source_file": "08_DQ1_Mechanism_Resolution_M0_M1_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "08_dq1_mechanism_resolution_m0_m1_contract_pdsgro_0_1": {
+      "code_fingerprint": "b94da242db251d60830f6485ef83af984a09900e36b03fa8a621c54c884e67c0",
+      "label": "PDSGRO-0.1 Paninian-Derived Scope-Gated Rule Organizer",
+      "last": "2026-08-21T12:22:14.770680+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T12:22:14.770680+00:00",
+          "outcome": "useful",
+          "q": "Why does graphify extract need API keys and how was Doc 08 indexed without one?"
+        }
+      ],
+      "score": 0.973746789,
+      "source_file": "08_DQ1_Mechanism_Resolution_M0_M1_Contract.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "09_m0_prior_art_kill_screen_matrix_v0_1_prior_art_kill_screen_matrix": {
+      "code_fingerprint": "f9649ff5cbe54fe8310a9351704f92fcf0ee4faa74b89c2f78667b510695f412",
+      "label": "Prior-Art Kill Screen Matrix v0.1 (14 families)",
+      "last": "2026-08-21T16:35:09.919248+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T16:35:09.919248+00:00",
+          "outcome": "useful",
+          "q": "What did the Pass 1 / Pass 2 review of M0 artifacts find and fix?"
+        },
+        {
+          "date": "2026-08-21T14:49:53.927962+00:00",
+          "outcome": "useful",
+          "q": "What does the prior-art kill screen conclude about PDSGRO-0.1?"
+        }
+      ],
+      "score": 1.953762811,
+      "source_file": "09_M0_Prior_Art_Kill_Screen_Matrix_v0.1.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "10_treatment_signature_v0_1": {
+      "code_fingerprint": "5ef357ca16db1aea7555e07b151c56635140f387cb2be50ae5aa166072520f27",
+      "label": "TreatmentSignature v0.1 (Generic route)",
+      "last": "2026-08-21T15:00:15.284830+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T15:00:15.284830+00:00",
+          "outcome": "useful",
+          "q": "Which route did the TreatmentSignature take and what artifacts now exist?"
+        }
+      ],
+      "score": 0.976218622,
+      "source_file": "10_M0_TreatmentSignature_v0.1.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "11_compile_t_specification_v0_1": {
+      "code_fingerprint": "3f584bd2f87f8057870631ca2e210b48d020783799b4423f131b977f93548f2b",
+      "label": "Compile_T Specification v0.1",
+      "last": "2026-08-21T15:00:15.284830+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T15:00:15.284830+00:00",
+          "outcome": "useful",
+          "q": "Which route did the TreatmentSignature take and what artifacts now exist?"
+        }
+      ],
+      "score": 0.976218622,
+      "source_file": "11_M0_Compile_T_Specification_v0.1.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "m0_control_development_charter_v0_1": {
+      "code_fingerprint": "9f366f85be4b42963e8d4097c1330179f843878193107ef04777fc8960c83663",
+      "label": "Control-Development Charter v0.1",
+      "last": "2026-08-22T11:17:52.621228+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-22T11:17:52.621228+00:00",
+          "outcome": "useful",
+          "q": "Pass1/Pass2 on charter+custody, and what closed the checklist/manifest gaps?"
+        },
+        {
+          "date": "2026-08-21T19:43:23.588188+00:00",
+          "outcome": "useful",
+          "q": "What does the control-development charter establish?"
+        }
+      ],
+      "score": 1.976142021,
+      "source_file": "m0-artifacts/control_development_charter_v0.1.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "m0_mapping_cards_v0_1": {
+      "code_fingerprint": "abe84d1c45bc8944954ee02c1e6536f8d34cf413592f5bea281aa8e15a6de70b",
+      "label": "Mapping Cards v0.1 (MC-1..MC-6)",
+      "last": "2026-08-21T19:28:35.734485+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T19:28:35.734485+00:00",
+          "outcome": "useful",
+          "q": "What did the Pass 1/Pass 2 mapping-card review find and what does the custody spec pin down?"
+        },
+        {
+          "date": "2026-08-21T19:19:52.455245+00:00",
+          "outcome": "useful",
+          "q": "What do the six mapping cards propose and what must the Sanskrit reviewer verify?"
+        }
+      ],
+      "score": 1.960724493,
+      "source_file": "m0-artifacts/mapping_cards_v0.1.md",
+      "status": "preferred",
+      "uses": 2
+    },
+    "m0_operational_semantics_v0_1": {
+      "code_fingerprint": "2ec24108ef921189b6da7a15f0fa2587517797875a72e375414b0dea8d944fa4",
+      "label": "Operational Semantics v0.1 (OS rules)",
+      "last": "2026-08-22T16:00:19.109650+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-22T16:00:19.109650+00:00",
+          "outcome": "useful",
+          "q": "What did the two review cycles cover and what does the operational-semantics artifact pin?"
+        }
+      ],
+      "score": 0.999999913,
+      "source_file": "m0-artifacts/operational_semantics_v0.1.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "m0_review_checklist_v0_1": {
+      "code_fingerprint": "38de18ca2297e7d3b2a77709bc34c2e559c84f95e15d182c2a52220d2508ac53",
+      "label": "M0 Review Checklist v0.1",
+      "last": "2026-08-22T11:17:52.621228+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-22T11:17:52.621228+00:00",
+          "outcome": "useful",
+          "q": "Pass1/Pass2 on charter+custody, and what closed the checklist/manifest gaps?"
+        }
+      ],
+      "score": 0.995478372,
+      "source_file": "m0-artifacts/review_checklist_v0.1.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "m0_schemas_pack_v0_1": {
+      "code_fingerprint": "",
+      "label": "M0 JSON Schema Pack v0.1 (6 schemas)",
+      "last": "2026-08-21T19:38:03.719560+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T19:38:03.719560+00:00",
+          "outcome": "useful",
+          "q": "What README/indexing problems were found and fixed?"
+        },
+        {
+          "date": "2026-08-21T16:35:09.919248+00:00",
+          "outcome": "useful",
+          "q": "What did the Pass 1 / Pass 2 review of M0 artifacts find and fix?"
+        },
+        {
+          "date": "2026-08-21T16:09:15.492155+00:00",
+          "outcome": "useful",
+          "q": "What do the M0 JSON schemas cover and what was deliberately left to the validator?"
+        }
+      ],
+      "score": 2.935586209,
+      "source_file": "m0-artifacts/schemas/",
+      "status": "preferred",
+      "uses": 3
+    },
+    "m0_version_hash_manifest_v0_1": {
+      "code_fingerprint": "c8e7e3bb59ae00394be20f426bbce6ba231d2ed3f05a13a6b18a6d948feb2153",
+      "label": "Version/Hash Manifest v0.1 (scheme)",
+      "last": "2026-08-22T11:17:52.621228+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-22T11:17:52.621228+00:00",
+          "outcome": "useful",
+          "q": "Pass1/Pass2 on charter+custody, and what closed the checklist/manifest gaps?"
+        }
+      ],
+      "score": 0.995478372,
+      "source_file": "m0-artifacts/version_hash_manifest_v0.1.md",
+      "status": "tentative",
+      "uses": 1
+    },
+    "reviewer_playbooks_pack_v0_1": {
+      "code_fingerprint": "",
+      "label": "Reviewer Playbook Pack v0.1 (4 roles)",
+      "last": "2026-08-21T15:28:12.561677+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-21T15:28:12.561677+00:00",
+          "outcome": "useful",
+          "q": "What does the reviewer playbook pack contain?"
+        }
+      ],
+      "score": 0.976656587,
+      "source_file": "reviewer-playbooks/",
+      "status": "tentative",
+      "uses": 1
+    },
+    "sanskrit_structural_efficiency_and_novelty_isolation_pilot_go_pivot_stop_rules": {
+      "code_fingerprint": "f2ae895304768f7d5769ad05e6e7a1227f336e92c8eff6324265e488090cbc95",
+      "label": "Pilot Go, Pivot, and Stop Rules",
+      "last": "2026-08-20T18:42:34.499800+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-20T18:42:34.499800+00:00",
+          "outcome": "useful",
+          "q": "Final closure check Document 08 and pilot 1.1 for eight prior P1 findings"
+        },
         {
           "date": "2026-08-20T18:34:46.495002+00:00",
           "outcome": "useful",
@@ -799,13 +1126,13 @@
           "q": "Audit Document 08 M0 M1 contract for cross-document alignment and DQ1 evidence omissions"
         }
       ],
-      "score": 1.999567687,
+      "score": 2.871553641,
       "source_file": "Sanskrit_Structural_Efficiency_and_Novelty_Isolation_Pilot.md",
       "status": "preferred",
-      "uses": 2
+      "uses": 3
     },
     "sanskrit_structural_efficiency_and_novelty_isolation_pilot_matched_experimental_conditions": {
-      "code_fingerprint": "79c23633d748af909a43bc1513834e070dbb87e8aacb01f9524a9680a8c5b4f2",
+      "code_fingerprint": "f2ae895304768f7d5769ad05e6e7a1227f336e92c8eff6324265e488090cbc95",
       "label": "Matched Experimental Conditions",
       "last": "2026-08-20T16:18:47.128866+00:00",
       "provenance": [
@@ -815,16 +1142,21 @@
           "q": "Trace DQ1 Mechanism Specification and Contribution Boundary across Documents 01-07 and the pilot"
         }
       ],
-      "score": 0.997708224,
+      "score": 0.955124486,
       "source_file": "Sanskrit_Structural_Efficiency_and_Novelty_Isolation_Pilot.md",
       "status": "tentative",
       "uses": 1
     },
     "sanskrit_structural_efficiency_and_novelty_isolation_pilot_novelty_controls": {
-      "code_fingerprint": "79c23633d748af909a43bc1513834e070dbb87e8aacb01f9524a9680a8c5b4f2",
+      "code_fingerprint": "f2ae895304768f7d5769ad05e6e7a1227f336e92c8eff6324265e488090cbc95",
       "label": "Novelty-Isolation and Causal Controls",
-      "last": "2026-08-20T17:28:53.599590+00:00",
+      "last": "2026-08-20T18:48:48.065594+00:00",
       "provenance": [
+        {
+          "date": "2026-08-20T18:48:48.065594+00:00",
+          "outcome": "useful",
+          "q": "Go ahead!"
+        },
         {
           "date": "2026-08-20T17:28:53.599590+00:00",
           "outcome": "useful",
@@ -836,10 +1168,10 @@
           "q": "Trace DQ1 Mechanism Specification and Contribution Boundary across Documents 01-07 and the pilot"
         }
       ],
-      "score": 1.996539387,
+      "score": 2.868750234,
       "source_file": "Sanskrit_Structural_Efficiency_and_Novelty_Isolation_Pilot.md",
       "status": "preferred",
-      "uses": 2
+      "uses": 3
     }
   },
   "version": 1

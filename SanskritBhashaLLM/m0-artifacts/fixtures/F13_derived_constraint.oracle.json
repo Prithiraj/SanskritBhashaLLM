@@ -1,0 +1,26 @@
+{
+ "fixture_id": "DQ1-M0-F13-derived-constraint",
+ "expected_execution_status": "COMPLETE",
+ "assertions": [
+  {
+   "id": "A1",
+   "property": "query_status[q1]",
+   "expect": "NO_VALID_ANALYSIS",
+   "reason": "the single branch is rejected by c_flag at its declared evaluation stratum AFTER d_flag derives flagged(e1)"
+  },
+  {
+   "id": "A2",
+   "property": "branch_dispositions",
+   "expect": "exactly one rejection, REJECTED_CONSTRAINT naming c_flag"
+  },
+  {
+   "id": "A3",
+   "property": "trace",
+   "expect": "ordering proof: default instantiation/commit at stratum 1 appears strictly before constraint evaluation at stratum 2; constraint did not fire pre-derivation"
+  }
+ ],
+ "invariants_checked": [
+  "stratified stability (11.13)",
+  "trace completeness (11.10)"
+ ]
+}

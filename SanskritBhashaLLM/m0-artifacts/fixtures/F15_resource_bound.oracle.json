@@ -1,0 +1,31 @@
+{
+ "fixture_id": "DQ1-M0-F15-resource-bound",
+ "expected_execution_status": "RESOURCE_EXHAUSTED",
+ "assertions": [
+  {
+   "id": "A1",
+   "property": "exhausted_counter",
+   "expect": "branches",
+   "note": "8 branches required (2^3 analysis product) vs branch_limit=4"
+  },
+  {
+   "id": "A2",
+   "property": "exhausted_limit",
+   "expect": 4
+  },
+  {
+   "id": "A3",
+   "property": "query_results",
+   "expect": "empty - no partial query answer reported as complete (section 10.7)"
+  },
+  {
+   "id": "A4",
+   "property": "determinism",
+   "expect": "replay produces byte-identical deterministic trace prefix and exhaustion reason; wall time must not alter semantic status"
+  }
+ ],
+ "invariants_checked": [
+  "termination (11.17)",
+  "order invariance (11.14)"
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "fixture_id": "DQ1-M0-F03-property-block",
+  "expected_execution_status": "COMPLETE",
+  "assertions": [
+    {"id": "A1", "property": "query_status[q_cat]", "expect": "ENTAILED", "reason": "block removes ONLY the declared property; unrelated property catalogued still propagates on the blocked edge"},
+    {"id": "A2", "property": "query_status[q_circ]", "expect": "ENTAILED", "reason": "second unblocked path g->p->c continues transmission of circulating (Doc 08 section 10.4)"},
+    {"id": "A3", "property": "blocked_paths", "expect": "exactly one counterfactual record: property circulating on edge inh_direct, never committed, never consumed by rules"},
+    {"id": "A4", "property": "supporting_paths[q_circ]", "expect": "path via inh_gp + inh_pc present and unblocked"}
+  ],
+  "invariants_checked": ["property-local blocking (11.4)", "path completeness (11.11)"]
+}

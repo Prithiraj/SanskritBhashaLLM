@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sanskritbhashallm.org/m0/schemas/model_payload.schema.json",
+  "title": "ModelPayload — lawful pre-solution structures eligible for later model input",
+  "description": "Created before reference inference (Doc 08 section 15.1). Must contain no query status, gold answer, verdict labels, firing outcomes, resolved conflicts, proofs, or traces. additionalProperties=false enforces the exclusion list structurally.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "mechanism_version", "compiler_version",
+    "source_bundle_hash", "compiled_structures", "candidate_analyses",
+    "request_context", "scope_anchor", "unsolved_queries", "model_payload_hash"
+  ],
+  "properties": {
+    "schema_version": { "$ref": "common.schema.json#/$defs/version_string" },
+    "mechanism_version": { "const": "PDSGRO-0.1" },
+    "compiler_version": { "$ref": "common.schema.json#/$defs/version_string" },
+    "source_bundle_hash": { "$ref": "common.schema.json#/$defs/sha256" },
+
+    "compiled_structures": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["facts", "rules", "scopes", "inheritance_edges"],
+      "description": "Lawful pre-inference source or compiled structures only; unsolved task theory included.",
+      "properties": {
+        "facts": { "type": "array" },
+        "rules": { "type": "array" },
+        "exceptions": { "type": "array" },
+        "blocks": { "type": "array" },
+        "priority_edges": { "type": "array" },
+        "optional_groups": { "type": "array" },
+        "constraints": { "type": "array" },
+        "scopes": { "type": "array" },
+        "inheritance_edges": { "type": "array" }
+      }
+    },
+
+    "candidate_analyses": {
+      "description": "Every pre-inference candidate and compatibility condition, WITHOUT selected/rejected labels.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["analysis_id", "group_id", "bindings"],
+        "properties": {
+          "analysis_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "group_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "bindings": { "type": "array" },
+          "compatibility_constraints": { "type": "array" }
+        }
+      }
+    },
+
+    "request_context": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Observable request context only."
+    },
+    "scope_anchor": { "$ref": "common.schema.json#/$defs/identifier" },
+    "unsolved_queries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["query_id", "proposition", "aggregation_policy_id"],
+        "properties": {
+          "query_id": { "$ref": "common.schema.json#/$defs/identifier" },
+          "proposition": { "type": "object" },
+          "aggregation_policy_id": { "const": "skeptical-v1" }
+        }
+      }
+    },
+
+    "model_payload_hash": { "$ref": "common.schema.json#/$defs/sha256" }
+  },
+  "allOf": [
+    {
+      "not": {
+        "anyOf": [
+          { "required": ["query_results"] },
+          { "required": ["branch_dispositions"] },
+          { "required": ["fired_rules"] },
+          { "required": ["defeated_applications"] },
+          { "required": ["resolved_conflicts"] },
+          { "required": ["proofs"] },
+          { "required": ["execution_trace"] },
+          { "required": ["gold_answers"] },
+          { "required": ["expected_status"] },
+          { "required": ["evaluator_labels"] }
+        ]
+      },
+      "description": "Structural prohibition of post-inference and evaluator-only field families (Doc 08 sections 15.1, 19.4)."
+    }
+  ]
+}

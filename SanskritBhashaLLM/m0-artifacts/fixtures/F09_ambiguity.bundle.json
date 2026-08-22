@@ -1,0 +1,188 @@
+{
+ "schema_version": "0.1.1",
+ "bundle_id": "f09_ambiguity",
+ "signature": {
+  "types": [
+   "entity"
+  ],
+  "predicates": [
+   {
+    "name": "ordinary_manual",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "rare_codex",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "physical_item",
+    "arg_types": [
+     "entity"
+    ]
+   }
+  ],
+  "relation_types": [],
+  "permitted_comparisons": []
+ },
+ "constants": [
+  {
+   "id": "vel",
+   "entity_type": "entity"
+  }
+ ],
+ "concepts": [],
+ "context_keys": [
+  {
+   "id": "ctx_main",
+   "representation_neutral_definition": "default"
+  }
+ ],
+ "anchor_intents": [
+  {
+   "id": "anchor_main",
+   "observable_semantic_context": "default",
+   "context_key_refs": [
+    "ctx_main"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "af_manual",
+   "predicate": "ordinary_manual",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "vel"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "af_codex",
+   "predicate": "rare_codex",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "vel"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  }
+ ],
+ "neutral_events": [],
+ "neutral_role_edges": [],
+ "analysis_groups": [
+  {
+   "id": "g_sense",
+   "selection_cardinality_equals_one": true,
+   "member_analysis_ids": [
+    "a_manual",
+    "a_codex"
+   ]
+  }
+ ],
+ "analyses": [
+  {
+   "id": "a_manual",
+   "group_id": "g_sense",
+   "bindings": [
+    {
+     "variable": "Sense",
+     "constant_id": "ordinary_manual"
+    }
+   ],
+   "assumed_fact_refs": [
+    "af_manual"
+   ]
+  },
+  {
+   "id": "a_codex",
+   "group_id": "g_sense",
+   "bindings": [
+    {
+     "variable": "Sense",
+     "constant_id": "rare_codex"
+    }
+   ],
+   "assumed_fact_refs": [
+    "af_codex"
+   ]
+  }
+ ],
+ "requests": [
+  {
+   "id": "req1",
+   "request_context": {},
+   "anchor_intent_id": "anchor_main",
+   "query_ids": [
+    "q1"
+   ],
+   "resource_config_id": "rc1"
+  }
+ ],
+ "task_theory": {
+  "strict_rules": [
+   {
+    "claim_id": "r_man",
+    "body": {
+     "literals": [
+      {
+       "predicate": "ordinary_manual",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "physical_item",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "X"
+      }
+     ],
+     "polarity": "positive"
+    }
+   }
+  ],
+  "defaults": []
+ },
+ "queries": [
+  {
+   "id": "q1",
+   "proposition": {
+    "predicate": "physical_item",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "vel"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  }
+ ],
+ "resource_configs": [
+  {
+   "id": "rc1",
+   "logical_step_limit": 1000,
+   "grounded_application_limit": 1000,
+   "inheritance_path_limit": 1000,
+   "branch_limit": 100,
+   "trace_limit": 5000
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "fixture_id": "DQ1-M0-F07-precedence-tie",
+  "expected_execution_status": "COMPLETE",
+  "assertions": [
+    {"id": "A1", "property": "query_status[q1]", "expect": "CONFLICT", "reason": "incomparable opposite defaults both survive; branch state is BOTH; no implicit tie-breaking by identifier or order"},
+    {"id": "A2", "property": "conflicts", "expect": "exactly one conflict record for p(c) with supporting polarities [positive, negative]"},
+    {"id": "A3", "property": "grounded_applications", "expect": "(d_p,{X->c}) and (d_n,{X->c}) both status=fired with conflict noted - neither defeated"},
+    {"id": "A4", "property": "trace", "expect": "no priority instantiation (no edges exist); conflict preserved visibly (Doc 08 section 10.6)"}
+  ],
+  "invariants_checked": ["conflict visibility (11.9)", "ambiguity preservation (11.7)"]
+}

@@ -1,0 +1,292 @@
+{
+ "schema_version": "0.1.1",
+ "bundle_id": "f06_precedence_chain",
+ "signature": {
+  "types": [
+   "entity"
+  ],
+  "predicates": [
+   {
+    "name": "special",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "odd",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "bird",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "flies",
+    "arg_types": [
+     "entity"
+    ]
+   }
+  ],
+  "relation_types": [],
+  "permitted_comparisons": []
+ },
+ "constants": [
+  {
+   "id": "t",
+   "entity_type": "entity"
+  }
+ ],
+ "concepts": [],
+ "context_keys": [
+  {
+   "id": "ctx_main",
+   "representation_neutral_definition": "default"
+  }
+ ],
+ "anchor_intents": [
+  {
+   "id": "anchor_main",
+   "observable_semantic_context": "default",
+   "context_key_refs": [
+    "ctx_main"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "f_sp",
+   "predicate": "special",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "t"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_od",
+   "predicate": "odd",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "t"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_bd",
+   "predicate": "bird",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "t"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  }
+ ],
+ "neutral_events": [],
+ "neutral_role_edges": [],
+ "analysis_groups": [],
+ "analyses": [],
+ "requests": [
+  {
+   "id": "req1",
+   "request_context": {},
+   "anchor_intent_id": "anchor_main",
+   "query_ids": [
+    "q1"
+   ],
+   "resource_config_id": "rc1"
+  }
+ ],
+ "task_theory": {
+  "strict_rules": [],
+  "defaults": [
+   {
+    "claim_id": "d_spec",
+    "body": {
+     "literals": [
+      {
+       "predicate": "special",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "flies",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "X"
+      }
+     ],
+     "polarity": "positive"
+    }
+   },
+   {
+    "claim_id": "d_odd",
+    "body": {
+     "literals": [
+      {
+       "predicate": "odd",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "flies",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "X"
+      }
+     ],
+     "polarity": "negative"
+    }
+   },
+   {
+    "claim_id": "d_gen",
+    "body": {
+     "literals": [
+      {
+       "predicate": "bird",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "flies",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "X"
+      }
+     ],
+     "polarity": "positive"
+    }
+   }
+  ],
+  "priority_claims": [
+   {
+    "claim_id": "p1",
+    "higher_rule_claim_id": "d_spec",
+    "lower_rule_claim_id": "d_odd",
+    "higher_substitution_pattern": {
+     "bindings": [
+      {
+       "variable": "X",
+       "term": {
+        "kind": "constant",
+        "constant_id": "t"
+       }
+      }
+     ]
+    },
+    "lower_substitution_pattern": {
+     "bindings": [
+      {
+       "variable": "X",
+       "term": {
+        "kind": "constant",
+        "constant_id": "t"
+       }
+      }
+     ]
+    },
+    "shared_argument_alignment": [
+     "X"
+    ],
+    "condition": {
+     "literals": []
+    }
+   },
+   {
+    "claim_id": "p2",
+    "higher_rule_claim_id": "d_odd",
+    "lower_rule_claim_id": "d_gen",
+    "higher_substitution_pattern": {
+     "bindings": [
+      {
+       "variable": "X",
+       "term": {
+        "kind": "constant",
+        "constant_id": "t"
+       }
+      }
+     ]
+    },
+    "lower_substitution_pattern": {
+     "bindings": [
+      {
+       "variable": "X",
+       "term": {
+        "kind": "constant",
+        "constant_id": "t"
+       }
+      }
+     ]
+    },
+    "shared_argument_alignment": [
+     "X"
+    ],
+    "condition": {
+     "literals": []
+    }
+   }
+  ]
+ },
+ "queries": [
+  {
+   "id": "q1",
+   "proposition": {
+    "predicate": "flies",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "t"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  }
+ ],
+ "resource_configs": [
+  {
+   "id": "rc1",
+   "logical_step_limit": 1000,
+   "grounded_application_limit": 1000,
+   "inheritance_path_limit": 1000,
+   "branch_limit": 100,
+   "trace_limit": 5000
+  }
+ ]
+}

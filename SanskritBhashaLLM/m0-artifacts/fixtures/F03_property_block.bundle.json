@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1.1", "bundle_id": "f03_property_block",
+  "signature": {
+    "types": ["entity"],
+    "predicates": [
+      {"name": "circulating", "arg_types": ["entity"]},
+      {"name": "catalogued", "arg_types": ["entity"]}
+    ],
+    "relation_types": [], "permitted_comparisons": []
+  },
+  "constants": [
+    {"id": "g", "entity_type": "entity"},
+    {"id": "p", "entity_type": "entity"},
+    {"id": "c", "entity_type": "entity"}
+  ],
+  "concepts": [], "context_keys": [{"id": "ctx_main", "representation_neutral_definition": "default"}],
+  "anchor_intents": [{"id": "anchor_main", "observable_semantic_context": "default", "context_key_refs": ["ctx_main"]}],
+  "facts": [
+    {"id": "f_circ_g", "predicate": "circulating", "arguments": [{"kind": "constant", "constant_id": "g"}], "polarity": "positive", "context_key": "GLOBAL"},
+    {"id": "f_cat_g", "predicate": "catalogued", "arguments": [{"kind": "constant", "constant_id": "g"}], "polarity": "positive", "context_key": "GLOBAL"}
+  ],
+  "neutral_events": [], "neutral_role_edges": [],
+  "analysis_groups": [], "analyses": [],
+  "requests": [
+    {"id": "req1", "request_context": {}, "anchor_intent_id": "anchor_main", "query_ids": ["q_circ", "q_cat"], "resource_config_id": "rc1"}
+  ],
+  "task_theory": {
+    "strict_rules": [], "defaults": [],
+    "inheritance_permissions": [
+      {"claim_id": "inh_direct", "source_ref_object": "g", "target_ref_object": "c", "permitted_properties": ["circulating", "catalogued"]},
+      {"claim_id": "inh_gp", "source_ref_object": "g", "target_ref_object": "p", "permitted_properties": ["circulating"]},
+      {"claim_id": "inh_pc", "source_ref_object": "p", "target_ref_object": "c", "permitted_properties": ["circulating"]}
+    ],
+    "block_claims": [
+      {"claim_id": "blk_circ_direct", "property_or_relation": "circulating", "target_edge_or_path_description": "edge inh_direct only", "condition": {"literals": []}}
+    ]
+  },
+  "queries": [
+    {"id": "q_circ", "proposition": {"predicate": "circulating", "arguments": [{"kind": "constant", "constant_id": "c"}], "polarity": "positive"}, "aggregation_policy_id": "skeptical-v1"},
+    {"id": "q_cat", "proposition": {"predicate": "catalogued", "arguments": [{"kind": "constant", "constant_id": "c"}], "polarity": "positive"}, "aggregation_policy_id": "skeptical-v1"}
+  ],
+  "resource_configs": [
+    {"id": "rc1", "logical_step_limit": 1000, "grounded_application_limit": 1000, "inheritance_path_limit": 1000, "branch_limit": 100, "trace_limit": 5000}
+  ]
+}

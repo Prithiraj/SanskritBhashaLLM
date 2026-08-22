@@ -1,0 +1,11 @@
+{
+  "fixture_id": "DQ1-M0-F05-protected-exception",
+  "expected_execution_status": "COMPLETE",
+  "assertions": [
+    {"id": "A1", "property": "query_status[q_vel]", "expect": "UNKNOWN", "reason": "the named grounded application (d_borrow, {I->vel}) is defeated by exception e_rare; no support and no opposition remains"},
+    {"id": "A2", "property": "query_status[q_scr]", "expect": "ENTAILED", "reason": "grounding locality: sibling application (d_borrow, {I->scroll2}) is untouched and fires"},
+    {"id": "A3", "property": "grounded_applications", "expect": "(d_borrow,{I->vel}) status=defeated_by_exception with reason referencing e_rare; (d_borrow,{I->scroll2}) status=fired"},
+    {"id": "A4", "property": "trace", "expect": "exception evaluated from frozen lower-stratum snapshot; defeat recorded even though no other ground exists"}
+  ],
+  "invariants_checked": ["exception locality (11.5)", "grounding locality (11.12)"]
+}

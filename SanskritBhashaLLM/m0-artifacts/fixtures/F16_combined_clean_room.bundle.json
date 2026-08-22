@@ -1,0 +1,543 @@
+{
+ "schema_version": "0.1.1",
+ "bundle_id": "f16_combined_clean_room",
+ "signature": {
+  "types": [
+   "entity"
+  ],
+  "predicates": [
+   {
+    "name": "doctoral_researcher",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "registered_member",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "library_item",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "rare_codex",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "ordinary_manual",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "catalogued",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "circulating",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "may_borrow",
+    "arg_types": [
+     "entity",
+     "entity"
+    ]
+   },
+   {
+    "name": "view_on_site",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "request_scan",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "service_available",
+    "arg_types": []
+   },
+   {
+    "name": "ctx_special_collections",
+    "arg_types": []
+   }
+  ],
+  "relation_types": [],
+  "permitted_comparisons": []
+ },
+ "constants": [
+  {
+   "id": "researcher",
+   "entity_type": "entity"
+  },
+  {
+   "id": "vel",
+   "entity_type": "entity"
+  },
+  {
+   "id": "collection_root",
+   "entity_type": "entity"
+  },
+  {
+   "id": "doctoral_class",
+   "entity_type": "entity"
+  }
+ ],
+ "concepts": [],
+ "context_keys": [
+  {
+   "id": "ctx_main",
+   "representation_neutral_definition": "default"
+  },
+  {
+   "id": "ctx_special",
+   "representation_neutral_definition": "special collections mode; active when request declares special_collections"
+  }
+ ],
+ "anchor_intents": [
+  {
+   "id": "anchor_special",
+   "observable_semantic_context": "special collections request",
+   "context_key_refs": [
+    "ctx_special"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "f_doc",
+   "predicate": "doctoral_researcher",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "researcher"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_mem_class",
+   "predicate": "registered_member",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "doctoral_class"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_lib_vel",
+   "predicate": "library_item",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "vel"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "af_manual",
+   "predicate": "ordinary_manual",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "vel"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "af_codex",
+   "predicate": "rare_codex",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "vel"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_cat_root",
+   "predicate": "catalogued",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "collection_root"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_cir_root",
+   "predicate": "circulating",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "collection_root"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_svc",
+   "predicate": "service_available",
+   "arguments": [],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  }
+ ],
+ "neutral_events": [],
+ "neutral_role_edges": [],
+ "analysis_groups": [
+  {
+   "id": "g_sense",
+   "selection_cardinality_equals_one": true,
+   "member_analysis_ids": [
+    "a_manual",
+    "a_codex"
+   ]
+  }
+ ],
+ "analyses": [
+  {
+   "id": "a_manual",
+   "group_id": "g_sense",
+   "bindings": [
+    {
+     "variable": "Sense",
+     "constant_id": "ordinary_manual"
+    }
+   ],
+   "assumed_fact_refs": [
+    "af_manual"
+   ]
+  },
+  {
+   "id": "a_codex",
+   "group_id": "g_sense",
+   "bindings": [
+    {
+     "variable": "Sense",
+     "constant_id": "rare_codex"
+    }
+   ],
+   "assumed_fact_refs": [
+    "af_codex"
+   ]
+  }
+ ],
+ "requests": [
+  {
+   "id": "req1",
+   "request_context": {
+    "domain": "clean-room-library",
+    "special_collections": true
+   },
+   "anchor_intent_id": "anchor_special",
+   "query_ids": [
+    "q1"
+   ],
+   "resource_config_id": "rc1"
+  }
+ ],
+ "task_theory": {
+  "strict_rules": [
+   {
+    "claim_id": "r_sc_neg",
+    "body": {
+     "literals": [
+      {
+       "predicate": "rare_codex",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "I"
+        }
+       ],
+       "polarity": "positive"
+      },
+      {
+       "predicate": "registered_member",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "M"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "may_borrow",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "M"
+      },
+      {
+       "kind": "variable",
+       "variable": "I"
+      }
+     ],
+     "polarity": "negative"
+    }
+   },
+   {
+    "claim_id": "r_view",
+    "body": {
+     "literals": [
+      {
+       "predicate": "service_available",
+       "args": [],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "view_on_site",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "I"
+      }
+     ],
+     "polarity": "positive"
+    }
+   },
+   {
+    "claim_id": "r_scan",
+    "body": {
+     "literals": [
+      {
+       "predicate": "service_available",
+       "args": [],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "request_scan",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "I"
+      }
+     ],
+     "polarity": "positive"
+    }
+   }
+  ],
+  "defaults": [
+   {
+    "claim_id": "d_borrow",
+    "body": {
+     "literals": [
+      {
+       "predicate": "registered_member",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "M"
+        }
+       ],
+       "polarity": "positive"
+      },
+      {
+       "predicate": "catalogued",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "I"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "may_borrow",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "M"
+      },
+      {
+       "kind": "variable",
+       "variable": "I"
+      }
+     ],
+     "polarity": "positive"
+    }
+   }
+  ],
+  "exception_claims": [
+   {
+    "claim_id": "e_rare",
+    "condition": {
+     "literals": [
+      {
+       "predicate": "rare_codex",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "I"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "target_rule_claim_id": "d_borrow",
+    "target_substitution_pattern": {
+     "bindings": [
+      {
+       "variable": "M",
+       "term": {
+        "kind": "constant",
+        "constant_id": "researcher"
+       }
+      },
+      {
+       "variable": "I",
+       "term": {
+        "kind": "constant",
+        "constant_id": "vel"
+       }
+      }
+     ]
+    }
+   }
+  ],
+  "inheritance_permissions": [
+   {
+    "claim_id": "inh_doc_member",
+    "source_ref_object": "doctoral_class",
+    "target_ref_object": "researcher",
+    "permitted_properties": [
+     "registered_member"
+    ],
+    "condition": {
+     "literals": []
+    }
+   },
+   {
+    "claim_id": "inh_lib_vel",
+    "source_ref_object": "collection_root",
+    "target_ref_object": "vel",
+    "permitted_properties": [
+     "catalogued",
+     "circulating"
+    ],
+    "condition": {
+     "literals": []
+    }
+   }
+  ],
+  "block_claims": [
+   {
+    "claim_id": "blk_circ_rare",
+    "property_or_relation": "circulating",
+    "target_edge_or_path_description": "edge inh_lib_vel only",
+    "condition": {
+     "literals": [
+      {
+       "predicate": "rare_codex",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "I"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    }
+   }
+  ],
+  "hard_constraints": [
+   {
+    "claim_id": "c_no_manual_sc",
+    "condition": {
+     "literals": [
+      {
+       "predicate": "ordinary_manual",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "I"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    }
+   }
+  ],
+  "optional_choice_claims": [
+   {
+    "claim_id": "og_service",
+    "member_rule_claim_ids": [
+     "r_view",
+     "r_scan"
+    ],
+    "minimum_choices": 1,
+    "maximum_choices": 1
+   }
+  ]
+ },
+ "queries": [
+  {
+   "id": "q1",
+   "proposition": {
+    "predicate": "may_borrow",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "researcher"
+     },
+     {
+      "kind": "constant",
+      "constant_id": "vel"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  }
+ ],
+ "resource_configs": [
+  {
+   "id": "rc1",
+   "logical_step_limit": 5000,
+   "grounded_application_limit": 5000,
+   "inheritance_path_limit": 5000,
+   "branch_limit": 100,
+   "trace_limit": 20000
+  }
+ ]
+}

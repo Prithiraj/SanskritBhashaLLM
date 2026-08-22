@@ -1,0 +1,306 @@
+{
+ "schema_version": "0.1.1",
+ "bundle_id": "f12_conflict_matrix",
+ "signature": {
+  "types": [
+   "entity"
+  ],
+  "predicates": [
+   {
+    "name": "p",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "base",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "q",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "r",
+    "arg_types": [
+     "entity"
+    ]
+   }
+  ],
+  "relation_types": [],
+  "permitted_comparisons": []
+ },
+ "constants": [
+  {
+   "id": "x",
+   "entity_type": "entity"
+  },
+  {
+   "id": "y",
+   "entity_type": "entity"
+  },
+  {
+   "id": "z",
+   "entity_type": "entity"
+  },
+  {
+   "id": "w",
+   "entity_type": "entity"
+  }
+ ],
+ "concepts": [],
+ "context_keys": [
+  {
+   "id": "ctx_main",
+   "representation_neutral_definition": "default"
+  }
+ ],
+ "anchor_intents": [
+  {
+   "id": "anchor_main",
+   "observable_semantic_context": "default",
+   "context_key_refs": [
+    "ctx_main"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "f_px",
+   "predicate": "p",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "x"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_py",
+   "predicate": "p",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "y"
+    }
+   ],
+   "polarity": "negative",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_qz",
+   "predicate": "q",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "z"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_bz",
+   "predicate": "base",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "z"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_bw",
+   "predicate": "base",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "w"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  }
+ ],
+ "neutral_events": [],
+ "neutral_role_edges": [],
+ "analysis_groups": [],
+ "analyses": [],
+ "requests": [
+  {
+   "id": "req1",
+   "request_context": {},
+   "anchor_intent_id": "anchor_main",
+   "query_ids": [
+    "q_px",
+    "q_py",
+    "q_qz",
+    "q_rw"
+   ],
+   "resource_config_id": "rc1"
+  }
+ ],
+ "task_theory": {
+  "strict_rules": [
+   {
+    "claim_id": "r_nq",
+    "body": {
+     "literals": [
+      {
+       "predicate": "base",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "U"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "q",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "U"
+      }
+     ],
+     "polarity": "negative"
+    }
+   },
+   {
+    "claim_id": "r_nr",
+    "body": {
+     "literals": [
+      {
+       "predicate": "base",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "U"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "r",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "U"
+      }
+     ],
+     "polarity": "negative"
+    }
+   }
+  ],
+  "defaults": [
+   {
+    "claim_id": "d_r",
+    "body": {
+     "literals": [
+      {
+       "predicate": "base",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "U"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "r",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "U"
+      }
+     ],
+     "polarity": "positive"
+    }
+   }
+  ]
+ },
+ "queries": [
+  {
+   "id": "q_px",
+   "proposition": {
+    "predicate": "p",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "x"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  },
+  {
+   "id": "q_py",
+   "proposition": {
+    "predicate": "p",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "y"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  },
+  {
+   "id": "q_qz",
+   "proposition": {
+    "predicate": "q",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "z"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  },
+  {
+   "id": "q_rw",
+   "proposition": {
+    "predicate": "r",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "w"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  }
+ ],
+ "resource_configs": [
+  {
+   "id": "rc1",
+   "logical_step_limit": 1000,
+   "grounded_application_limit": 1000,
+   "inheritance_path_limit": 1000,
+   "branch_limit": 100,
+   "trace_limit": 5000
+  }
+ ]
+}

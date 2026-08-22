@@ -1,0 +1,10 @@
+{
+  "fixture_id": "DQ1-M0-F04-default-only",
+  "expected_execution_status": "COMPLETE",
+  "assertions": [
+    {"id": "A1", "property": "query_status[q1]", "expect": "ENTAILED", "reason": "undefeated applicable default commits its defeasible conclusion"},
+    {"id": "A2", "property": "grounded_applications", "expect": "application (d_borrow, {M->bob, B->book1}) status=fired with no defeat reasons; no other applications"},
+    {"id": "A3", "property": "trace", "expect": "default instantiated at its stratum after exception/priority filters found nothing"}
+  ],
+  "invariants_checked": ["termination (11.17)", "trace completeness (11.10)"]
+}

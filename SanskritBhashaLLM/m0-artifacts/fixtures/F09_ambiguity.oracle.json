@@ -1,0 +1,25 @@
+{
+ "fixture_id": "DQ1-M0-F09-ambiguity",
+ "expected_execution_status": "COMPLETE",
+ "assertions": [
+  {
+   "id": "A1",
+   "property": "query_status[q1]",
+   "expect": "AMBIGUOUS",
+   "reason": "branch a_manual derives physical_item(vel)=TRUE; branch a_codex has NEITHER; different retained query states aggregate as AMBIGUOUS"
+  },
+  {
+   "id": "A2",
+   "property": "analysis_status",
+   "expect": "MULTIPLE"
+  },
+  {
+   "id": "A3",
+   "property": "trace",
+   "expect": "both candidate senses remain visible; no silent collapse"
+  }
+ ],
+ "invariants_checked": [
+  "ambiguity preservation (11.7)"
+ ]
+}

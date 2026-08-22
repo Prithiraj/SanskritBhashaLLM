@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sanskritbhashallm.org/m0/schemas/execution_audit.schema.json",
+  "title": "ExecutionAudit — evaluator/compiler-only deterministic result",
+  "description": "Tagged union over execution_status (Doc 08 sections 10.7-10.9, 19.4). COMPLETE carries full branch records and query results; INVALID_INSTANCE and RESOURCE_EXHAUSTED carry no query answers.",
+  "oneOf": [
+    { "$ref": "#/$defs/complete" },
+    { "$ref": "#/$defs/invalid_instance" },
+    { "$ref": "#/$defs/resource_exhausted" }
+  ],
+  "$defs": {
+    "header": {
+      "type": "object",
+      "required": ["schema_version", "mechanism_version", "execution_status", "evaluation_state"],
+      "properties": {
+        "schema_version": { "$ref": "common.schema.json#/$defs/version_string" },
+        "mechanism_version": { "const": "PDSGRO-0.1" },
+        "execution_status": { "$ref": "common.schema.json#/$defs/execution_status" },
+        "evaluation_state": { "$ref": "common.schema.json#/$defs/evaluation_state" }
+      }
+    },
+    "grounded_application": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule_id", "substitution", "status", "reasons"],
+      "properties": {
+        "rule_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "substitution": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["variable", "constant_id"],
+            "properties": {
+              "variable": { "$ref": "common.schema.json#/$defs/identifier" },
+              "constant_id": { "$ref": "common.schema.json#/$defs/identifier" }
+            }
+          }
+        },
+        "status": { "enum": ["fired", "defeated_by_exception", "defeated_by_priority", "suppressed_by_indefeasible_opposition", "blocked"] },
+        "reasons": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "branch_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["branch_id", "disposition", "query_states"],
+      "properties": {
+        "branch_id": { "$ref": "common.schema.json#/$defs/identifier" },
+        "analysis_assignment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["group_id", "analysis_id"],
+          "properties": {
+            "group_id": { "$ref": "common.schema.json#/$defs/identifier" },
+            "analysis_id": { "$ref": "common.schema.json#/$defs/identifier" }
+          }
+        },
+        "optional_selection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["group_id", "selected_rule_ids", "applicable"],
+            "properties": {
+              "group_id": { "$ref": "common.schema.json#/$defs/identifier" },
+              "selected_rule_ids": {
+                "type": "array",
+                "items": { "$ref": "common.schema.json#/$defs/identifier" }
+              },
+              "applicable": { "type": "boolean" }
+            }
+          }
+        },
+        "scope_anchor": { "$ref": "common.schema.json#/$defs/identifier" },
+        "disposition": {
+          "enum": [
+            "RETAINED", "REJECTED_INACTIVE_ANCHOR", "REJECTED_CONSTRAINT",
+            "REJECTED_COMPATIBILITY", "NOT_CONSTRUCTED_BRANCH_LIMIT"
+          ],
+          "description": "Rejections must carry machine-readable reasons in disposition_reason."
+        },
+        "disposition_reason": { "type": ["string", "null"] },
+        "active_scopes": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/identifier" }
+        },
+        "derived_facts": { "type": "array" },
+        "supporting_paths": { "type": "array" },
+        "blocked_paths": {
+          "type": "array",
+          "description": "Counterfactual records only; never committed or consumed by rules (Doc 08 section 10.5)."
+        },
+        "grounded_applications": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/grounded_application" }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["literal", "supporting_polarities"],
+            "properties": {
+              "literal": { "$ref": "common.schema.json#/$defs/literal" },
+              "supporting_polarities": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": { "$ref": "common.schema.json#/$defs/polarity" }
+              }
+            }
+          }
+        },
+        "query_states": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["query_id", "state"],
+            "properties": {
+              "query_id": { "$ref": "common.schema.json#/$defs/identifier" },
+              "state": { "enum": ["TRUE", "FALSE", "NEITHER", "BOTH"] }
+            }
+          }
+        },
+        "trace_refs": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "trace_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["step", "operation", "result"],
+      "properties": {
+        "step": { "type": "integer", "minimum": 0 },
+        "branch": { "$ref": "common.schema.json#/$defs/identifier" },
+        "operation": { "type": "string" },
+        "inputs": { "type": "object" },
+        "rule_or_control": { "$ref": "common.schema.json#/$defs/identifier" },
+        "result": { "type": "string" },
+        "suppression_reason": { "type": ["string", "null"] }
+      }
+    },
+    "complete": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/$defs/header" }],
+      "additionalProperties": false,
+      "required": [
+        "execution_status", "evaluation_state", "branches", "query_results",
+        "analysis_status", "trace", "canonical_output_hash"
+      ],
+      "properties": {
+        "schema_version": true,
+        "mechanism_version": true,
+        "execution_status": { "const": "COMPLETE" },
+        "evaluation_state": { "const": "EVALUATED" },
+        "exhaustion_reason_or_null": { "const": null },
+        "validation_errors": { "const": [] },
+        "branches": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/branch_record" }
+        },
+        "query_results": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["query_id", "query_status", "branch_states"],
+            "properties": {
+              "query_id": { "$ref": "common.schema.json#/$defs/identifier" },
+              "query_status": { "$ref": "common.schema.json#/$defs/query_status" },
+              "branch_states": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["branch_id", "state"],
+                  "properties": {
+                    "branch_id": { "$ref": "common.schema.json#/$defs/identifier" },
+                    "state": { "enum": ["TRUE", "FALSE", "NEITHER", "BOTH"] }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "analysis_status": { "$ref": "common.schema.json#/$defs/analysis_status" },
+        "trace": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/trace_event" }
+        },
+        "canonical_output_hash": { "$ref": "common.schema.json#/$defs/sha256" }
+      }
+    },
+    "invalid_instance": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/$defs/header" }],
+      "additionalProperties": false,
+      "required": ["execution_status", "evaluation_state", "validation_errors", "trace"],
+      "properties": {
+        "schema_version": true,
+        "mechanism_version": true,
+        "execution_status": { "const": "INVALID_INSTANCE" },
+        "evaluation_state": { "const": "NOT_EVALUATED" },
+        "validation_errors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "message"],
+            "properties": {
+              "code": { "type": "string" },
+              "message": { "type": "string" },
+              "object_ref": { "$ref": "common.schema.json#/$defs/identifier" }
+            }
+          }
+        },
+        "trace": {
+          "type": "array",
+          "description": "Deterministic validation trace only.",
+          "items": { "$ref": "#/$defs/trace_event" }
+        }
+      }
+    },
+    "resource_exhausted": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/$defs/header" }],
+      "additionalProperties": false,
+      "required": ["execution_status", "evaluation_state", "exhausted_counter", "exhausted_limit", "partial_trace_prefix"],
+      "properties": {
+        "schema_version": true,
+        "mechanism_version": true,
+        "execution_status": { "const": "RESOURCE_EXHAUSTED" },
+        "evaluation_state": { "const": "NOT_EVALUATED" },
+        "exhausted_counter": {
+          "enum": [
+            "logical_steps", "grounded_applications",
+            "inheritance_paths", "branches", "trace_events"
+          ]
+        },
+        "exhausted_limit": { "type": "integer", "minimum": 1 },
+        "partial_trace_prefix": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/trace_event" },
+          "description": "Marked PARTIAL; no partial query answer may be reported as complete."
+        },
+        "partial_branches": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/branch_record" }
+        }
+      }
+    }
+  }
+}

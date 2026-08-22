@@ -1,0 +1,12 @@
+{
+  "fixture_id": "DQ1-M0-F01-scope-inactive",
+  "expected_execution_status": "COMPLETE",
+  "assertions": [
+    {"id": "A1", "property": "anchor_path", "expect": "sc_special activation condition is false because GLOBAL negative fact f_neg_mode opposes special_mode_active; branch rejected with disposition REJECTED_INACTIVE_ANCHOR"},
+    {"id": "A2", "property": "query_status[q1]", "expect": "NO_VALID_ANALYSIS", "reason": "no retained branch (Doc 08 section 10.8 rule 1)"},
+    {"id": "A3", "property": "query_status[q2]", "expect": "NO_VALID_ANALYSIS", "reason": "sibling scope ctx_sibling is off the anchor path; its facts and rule never activate - no leak"},
+    {"id": "A4", "property": "analysis_status", "expect": "NONE"},
+    {"id": "A5", "property": "trace", "expect": "activation decision for sc_special recorded with its false condition; no derivation of inside_special or leaked anywhere"}
+  ],
+  "invariants_checked": ["scope safety (11.3)", "irrelevance locality (11.16)"]
+}

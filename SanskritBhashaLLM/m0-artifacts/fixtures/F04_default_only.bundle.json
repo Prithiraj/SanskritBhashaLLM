@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.1", "bundle_id": "f04_default_only",
+  "signature": {
+    "types": ["entity"],
+    "predicates": [
+      {"name": "registered_member", "arg_types": ["entity"]},
+      {"name": "may_borrow", "arg_types": ["entity", "entity"]}
+    ],
+    "relation_types": [], "permitted_comparisons": []
+  },
+  "constants": [
+    {"id": "bob", "entity_type": "entity"},
+    {"id": "book1", "entity_type": "entity"}
+  ],
+  "concepts": [], "context_keys": [{"id": "ctx_main", "representation_neutral_definition": "default"}],
+  "anchor_intents": [{"id": "anchor_main", "observable_semantic_context": "default", "context_key_refs": ["ctx_main"]}],
+  "facts": [
+    {"id": "f_member", "predicate": "registered_member", "arguments": [{"kind": "constant", "constant_id": "bob"}], "polarity": "positive", "context_key": "GLOBAL"}
+  ],
+  "neutral_events": [], "neutral_role_edges": [],
+  "analysis_groups": [], "analyses": [],
+  "requests": [
+    {"id": "req1", "request_context": {}, "anchor_intent_id": "anchor_main", "query_ids": ["q1"], "resource_config_id": "rc1"}
+  ],
+  "task_theory": {
+    "strict_rules": [],
+    "defaults": [
+      {"claim_id": "d_borrow", "body": {"literals": [
+        {"predicate": "registered_member", "args": [{"kind": "variable", "variable": "M"}], "polarity": "positive"}
+      ]}, "head": {"predicate": "may_borrow", "args": [{"kind": "variable", "variable": "M"}, {"kind": "variable", "variable": "B"}], "polarity": "positive"}}
+    ]
+  },
+  "queries": [
+    {"id": "q1", "proposition": {"predicate": "may_borrow", "arguments": [{"kind": "constant", "constant_id": "bob"}, {"kind": "constant", "constant_id": "book1"}], "polarity": "positive"}, "aggregation_policy_id": "skeptical-v1"}
+  ],
+  "resource_configs": [
+    {"id": "rc1", "logical_step_limit": 1000, "grounded_application_limit": 1000, "inheritance_path_limit": 1000, "branch_limit": 100, "trace_limit": 5000}
+  ]
+}

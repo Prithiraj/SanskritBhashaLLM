@@ -1,0 +1,738 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sanskritbhashallm.org/m0/schemas/source_bundle.schema.json",
+  "title": "Neutral Source Bundle B = (Sigma, V, F_N, A_N, K_N, T, Q)",
+  "description": "Language-independent canonical source bundle per Doc 08 section 8.1, supporting the section 9 object inventory: Signature, ContextKey, AnchorIntent, Entity, Concept, NeutralEvent, NeutralRoleEdge, NeutralAnalysisGroup, NeutralAnalysis, NeutralFact, NeutralRequest. Contains no gold answer, evaluator label, hidden proof, or test-derived consequence. The reserved ContextKey GLOBAL contains only facts lawfully visible before scope activation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "signature",
+    "constants",
+    "concepts",
+    "context_keys",
+    "anchor_intents",
+    "facts",
+    "neutral_events",
+    "neutral_role_edges",
+    "analysis_groups",
+    "analyses",
+    "requests",
+    "task_theory",
+    "queries"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/version_string"
+    },
+    "bundle_id": {
+      "$ref": "common.schema.json#/$defs/identifier"
+    },
+    "provenance_manifest_ref": {
+      "$ref": "common.schema.json#/$defs/provenance_ref"
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "types",
+        "predicates",
+        "relation_types",
+        "permitted_comparisons"
+      ],
+      "properties": {
+        "types": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "minItems": 1
+        },
+        "predicates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "arg_types"
+            ],
+            "properties": {
+              "name": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "arg_types": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/identifier"
+                }
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "relation_types": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          }
+        },
+        "permitted_comparisons": {
+          "type": "array",
+          "description": "Total, non-generative comparisons only (Doc 08 section 9.2).",
+          "items": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          }
+        }
+      }
+    },
+    "constants": {
+      "description": "V: finite typed constants and objects (section 9 Entity rows).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "entity_type"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "entity_type": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "concept_ref": {
+            "$ref": "common.schema.json#/$defs/identifier",
+            "description": "Optional alignment to a canonical Concept."
+          },
+          "provenance_ref": {
+            "$ref": "common.schema.json#/$defs/provenance_ref"
+          }
+        }
+      }
+    },
+    "concepts": {
+      "description": "Section 9 Concept rows: language-independent canonical concepts.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "concept_type"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "concept_type": {
+            "enum": [
+              "entity",
+              "process",
+              "property",
+              "relation",
+              "event",
+              "proposition"
+            ]
+          },
+          "language_independent_definition_ref": {
+            "$ref": "common.schema.json#/$defs/provenance_ref"
+          }
+        }
+      }
+    },
+    "context_keys": {
+      "description": "Representation-neutral applicability contexts. GLOBAL is reserved.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "representation_neutral_definition"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier",
+            "not": {
+              "const": "GLOBAL"
+            },
+            "description": "GLOBAL is reserved and must not be redeclared."
+          },
+          "representation_neutral_definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "provenance_ref": {
+            "$ref": "common.schema.json#/$defs/provenance_ref"
+          }
+        }
+      }
+    },
+    "anchor_intents": {
+      "description": "Observable semantic context anchors; exactly one is selected per request.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "observable_semantic_context",
+          "context_key_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "observable_semantic_context": {
+            "type": "string",
+            "minLength": 1
+          },
+          "context_key_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "minItems": 1
+          },
+          "provenance_ref": {
+            "$ref": "common.schema.json#/$defs/provenance_ref"
+          }
+        }
+      }
+    },
+    "facts": {
+      "description": "F_N: positive or explicit-negative ground facts tagged with neutral ContextKey values. Absence means unknown, not false.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "predicate",
+          "arguments",
+          "polarity",
+          "context_key"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "predicate": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/term_constant"
+            }
+          },
+          "polarity": {
+            "$ref": "common.schema.json#/$defs/polarity"
+          },
+          "context_key": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "provenance_ref": {
+            "$ref": "common.schema.json#/$defs/provenance_ref"
+          }
+        }
+      }
+    },
+    "neutral_events": {
+      "description": "Section 9 NeutralEvent rows: predicate-concept instances with participant edges.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "predicate_concept_id",
+          "participant_edges",
+          "context_key"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "predicate_concept_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "participant_edges": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "description": "Ids of neutral_role_edges bound to this event."
+          },
+          "context_key": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "provenance_ref": {
+            "$ref": "common.schema.json#/$defs/provenance_ref"
+          }
+        }
+      }
+    },
+    "neutral_role_edges": {
+      "description": "Section 9 NeutralRoleEdge rows: event-participant role bindings.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "event_id",
+          "entity_or_event_id",
+          "role_type",
+          "context_key"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "event_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "entity_or_event_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "role_type": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "context_key": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "provenance_ref": {
+            "$ref": "common.schema.json#/$defs/provenance_ref"
+          }
+        }
+      }
+    },
+    "analysis_groups": {
+      "description": "A_N groups: mutually exclusive; one complete branch selects exactly one compatible member from every group.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "selection_cardinality_equals_one",
+          "member_analysis_ids"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "selection_cardinality_equals_one": {
+            "const": true
+          },
+          "member_analysis_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "minItems": 2
+          }
+        }
+      }
+    },
+    "analyses": {
+      "description": "Section 9 NeutralAnalysis rows.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "group_id",
+          "bindings"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "group_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "bindings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "variable",
+                "constant_id"
+              ],
+              "properties": {
+                "variable": {
+                  "$ref": "common.schema.json#/$defs/identifier"
+                },
+                "constant_id": {
+                  "$ref": "common.schema.json#/$defs/identifier"
+                }
+              }
+            }
+          },
+          "compatibility_constraints": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/condition"
+            },
+            "description": "May reference only request context, GLOBAL facts, and this branch's bindings (Doc 08 section 9.2)."
+          },
+          "context_key_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            }
+          },
+          "provenance_ref": {
+            "$ref": "common.schema.json#/$defs/provenance_ref"
+          },
+          "assumed_fact_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "description": "Facts from F_N that hold only in branches selecting this analysis (branch-local assumptions; drives sense-dependent classification, e.g. fixture F16)."
+          }
+        }
+      }
+    },
+    "requests": {
+      "description": "K_N plus query binding; one compiled scope anchor per request after compilation.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "request_context",
+          "anchor_intent_id",
+          "query_ids",
+          "resource_config_id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "request_context": {
+            "type": "object",
+            "description": "Observable runtime context; never hand-selected fact/rule IDs.",
+            "additionalProperties": true,
+            "properties": {
+              "domain": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              },
+              "register": {
+                "type": "string"
+              },
+              "fictional_world": {
+                "type": "string"
+              }
+            }
+          },
+          "anchor_intent_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "query_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "minItems": 1
+          },
+          "resource_config_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          }
+        }
+      }
+    },
+    "task_theory": {
+      "description": "T: every task-relevant rule, condition, exception claim, block claim, priority claim, and optionality claim before condition-specific compilation.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strict_rules",
+        "defaults"
+      ],
+      "properties": {
+        "strict_rules": {
+          "$ref": "#/$defs/theory_rules"
+        },
+        "defaults": {
+          "$ref": "#/$defs/theory_rules"
+        },
+        "applicability_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/condition"
+          }
+        },
+        "hard_constraints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim_id",
+              "condition"
+            ],
+            "properties": {
+              "claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "condition": {
+                "$ref": "common.schema.json#/$defs/condition"
+              }
+            }
+          }
+        },
+        "exception_claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim_id",
+              "condition",
+              "target_rule_claim_id"
+            ],
+            "properties": {
+              "claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "condition": {
+                "$ref": "common.schema.json#/$defs/condition"
+              },
+              "target_rule_claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "target_substitution_pattern": {
+                "$ref": "common.schema.json#/$defs/substitution_pattern"
+              }
+            }
+          }
+        },
+        "inheritance_permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim_id",
+              "source_ref_object",
+              "target_ref_object",
+              "permitted_properties"
+            ],
+            "properties": {
+              "claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "source_ref_object": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "target_ref_object": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "permitted_properties": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/identifier"
+                },
+                "minItems": 1
+              },
+              "condition": {
+                "$ref": "common.schema.json#/$defs/condition"
+              }
+            }
+          }
+        },
+        "block_claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim_id",
+              "property_or_relation"
+            ],
+            "properties": {
+              "claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "property_or_relation": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "target_edge_or_path_description": {
+                "type": "string"
+              },
+              "condition": {
+                "$ref": "common.schema.json#/$defs/condition"
+              }
+            }
+          }
+        },
+        "priority_claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim_id",
+              "higher_rule_claim_id",
+              "lower_rule_claim_id"
+            ],
+            "properties": {
+              "claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "higher_rule_claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "lower_rule_claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "higher_substitution_pattern": {
+                "$ref": "common.schema.json#/$defs/substitution_pattern"
+              },
+              "lower_substitution_pattern": {
+                "$ref": "common.schema.json#/$defs/substitution_pattern"
+              },
+              "shared_argument_alignment": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "condition": {
+                "$ref": "common.schema.json#/$defs/condition"
+              }
+            }
+          }
+        },
+        "optional_choice_claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim_id",
+              "member_rule_claim_ids",
+              "minimum_choices",
+              "maximum_choices"
+            ],
+            "properties": {
+              "claim_id": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "member_rule_claim_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/identifier"
+                },
+                "minItems": 2
+              },
+              "minimum_choices": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "maximum_choices": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "queries": {
+      "description": "Q: each query is one type-correct ground literal under skeptical-v1 aggregation.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "proposition",
+          "aggregation_policy_id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "proposition": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predicate",
+              "arguments",
+              "polarity"
+            ],
+            "properties": {
+              "predicate": {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/term_constant"
+                }
+              },
+              "polarity": {
+                "$ref": "common.schema.json#/$defs/polarity"
+              }
+            }
+          },
+          "aggregation_policy_id": {
+            "const": "skeptical-v1"
+          }
+        }
+      }
+    },
+    "resource_configs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/resource_config"
+      }
+    }
+  },
+  "$defs": {
+    "theory_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim_id",
+          "body",
+          "head"
+        ],
+        "properties": {
+          "claim_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "body": {
+            "$ref": "common.schema.json#/$defs/condition"
+          },
+          "head": {
+            "$ref": "common.schema.json#/$defs/literal",
+            "description": "Exactly one literal head (Doc 08 section 9.2)."
+          }
+        }
+      }
+    }
+  }
+}

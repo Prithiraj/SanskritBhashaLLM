@@ -1,0 +1,12 @@
+{
+  "fixture_id": "DQ1-M0-F14-malformed-cycles",
+  "expected_execution_status": "INVALID_INSTANCE (each variant independently)",
+  "assertions": [
+    {"id": "A1", "property": "f14a", "expect": "SCOPE_CYCLE - s1<->s2 parent cycle rejected; no repair attempted"},
+    {"id": "A2", "property": "f14b", "expect": "INHERITANCE_CYCLE - self/directed cycle in inheritance permissions rejected"},
+    {"id": "A3", "property": "f14c", "expect": "PRIORITY_CYCLE - unconditional priority supergraph d1>d2>d1 rejected before evaluation"},
+    {"id": "A4", "property": "f14d", "expect": "STRATIFICATION_CYCLE - mutual default dependency e1/e2 cannot satisfy the stratification rule; rejected"},
+    {"id": "A5", "property": "common", "expect": "every variant: evaluation_state=NOT_EVALUATED, empty query_results and branches, deterministic validation trace only"}
+  ],
+  "invariants_checked": ["fail-closed validation (Doc 08 section 10.1)", "termination (11.17)"]
+}

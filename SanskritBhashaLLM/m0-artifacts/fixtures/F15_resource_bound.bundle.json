@@ -1,0 +1,161 @@
+{
+ "schema_version": "0.1.1",
+ "bundle_id": "f15_resource_bound",
+ "signature": {
+  "types": [
+   "entity"
+  ],
+  "predicates": [
+   {
+    "name": "common_fact",
+    "arg_types": []
+   },
+   {
+    "name": "derived_common",
+    "arg_types": []
+   }
+  ],
+  "relation_types": [],
+  "permitted_comparisons": []
+ },
+ "constants": [],
+ "concepts": [],
+ "context_keys": [
+  {
+   "id": "ctx_main",
+   "representation_neutral_definition": "default"
+  }
+ ],
+ "anchor_intents": [
+  {
+   "id": "anchor_main",
+   "observable_semantic_context": "default",
+   "context_key_refs": [
+    "ctx_main"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "f_com",
+   "predicate": "common_fact",
+   "arguments": [],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  }
+ ],
+ "neutral_events": [],
+ "neutral_role_edges": [],
+ "analysis_groups": [
+  {
+   "id": "g1",
+   "selection_cardinality_equals_one": true,
+   "member_analysis_ids": [
+    "a1_1",
+    "a1_2"
+   ]
+  },
+  {
+   "id": "g2",
+   "selection_cardinality_equals_one": true,
+   "member_analysis_ids": [
+    "a2_1",
+    "a2_2"
+   ]
+  },
+  {
+   "id": "g3",
+   "selection_cardinality_equals_one": true,
+   "member_analysis_ids": [
+    "a3_1",
+    "a3_2"
+   ]
+  }
+ ],
+ "analyses": [
+  {
+   "id": "a1_1",
+   "group_id": "g1",
+   "bindings": []
+  },
+  {
+   "id": "a1_2",
+   "group_id": "g1",
+   "bindings": []
+  },
+  {
+   "id": "a2_1",
+   "group_id": "g2",
+   "bindings": []
+  },
+  {
+   "id": "a2_2",
+   "group_id": "g2",
+   "bindings": []
+  },
+  {
+   "id": "a3_1",
+   "group_id": "g3",
+   "bindings": []
+  },
+  {
+   "id": "a3_2",
+   "group_id": "g3",
+   "bindings": []
+  }
+ ],
+ "requests": [
+  {
+   "id": "req1",
+   "request_context": {},
+   "anchor_intent_id": "anchor_main",
+   "query_ids": [
+    "q1"
+   ],
+   "resource_config_id": "rc1"
+  }
+ ],
+ "task_theory": {
+  "strict_rules": [
+   {
+    "claim_id": "r_c",
+    "body": {
+     "literals": [
+      {
+       "predicate": "common_fact",
+       "args": [],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "derived_common",
+     "args": [],
+     "polarity": "positive"
+    }
+   }
+  ],
+  "defaults": []
+ },
+ "queries": [
+  {
+   "id": "q1",
+   "proposition": {
+    "predicate": "derived_common",
+    "arguments": [],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  }
+ ],
+ "resource_configs": [
+  {
+   "id": "rc1",
+   "logical_step_limit": 1000,
+   "grounded_application_limit": 1000,
+   "inheritance_path_limit": 1000,
+   "branch_limit": 4,
+   "trace_limit": 5000
+  }
+ ]
+}

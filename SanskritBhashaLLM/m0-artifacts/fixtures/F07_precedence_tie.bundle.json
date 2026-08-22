@@ -1,0 +1,179 @@
+{
+ "schema_version": "0.1.1",
+ "bundle_id": "f07_precedence_tie",
+ "signature": {
+  "types": [
+   "entity"
+  ],
+  "predicates": [
+   {
+    "name": "a_cond",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "b_cond",
+    "arg_types": [
+     "entity"
+    ]
+   },
+   {
+    "name": "p",
+    "arg_types": [
+     "entity"
+    ]
+   }
+  ],
+  "relation_types": [],
+  "permitted_comparisons": []
+ },
+ "constants": [
+  {
+   "id": "c1",
+   "entity_type": "entity"
+  }
+ ],
+ "concepts": [],
+ "context_keys": [
+  {
+   "id": "ctx_main",
+   "representation_neutral_definition": "default"
+  }
+ ],
+ "anchor_intents": [
+  {
+   "id": "anchor_main",
+   "observable_semantic_context": "default",
+   "context_key_refs": [
+    "ctx_main"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "f_a",
+   "predicate": "a_cond",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "c1"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  },
+  {
+   "id": "f_b",
+   "predicate": "b_cond",
+   "arguments": [
+    {
+     "kind": "constant",
+     "constant_id": "c1"
+    }
+   ],
+   "polarity": "positive",
+   "context_key": "GLOBAL"
+  }
+ ],
+ "neutral_events": [],
+ "neutral_role_edges": [],
+ "analysis_groups": [],
+ "analyses": [],
+ "requests": [
+  {
+   "id": "req1",
+   "request_context": {},
+   "anchor_intent_id": "anchor_main",
+   "query_ids": [
+    "q1"
+   ],
+   "resource_config_id": "rc1"
+  }
+ ],
+ "task_theory": {
+  "strict_rules": [],
+  "defaults": [
+   {
+    "claim_id": "d_p",
+    "body": {
+     "literals": [
+      {
+       "predicate": "a_cond",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "p",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "X"
+      }
+     ],
+     "polarity": "positive"
+    }
+   },
+   {
+    "claim_id": "d_n",
+    "body": {
+     "literals": [
+      {
+       "predicate": "b_cond",
+       "args": [
+        {
+         "kind": "variable",
+         "variable": "X"
+        }
+       ],
+       "polarity": "positive"
+      }
+     ]
+    },
+    "head": {
+     "predicate": "p",
+     "args": [
+      {
+       "kind": "variable",
+       "variable": "X"
+      }
+     ],
+     "polarity": "negative"
+    }
+   }
+  ]
+ },
+ "queries": [
+  {
+   "id": "q1",
+   "proposition": {
+    "predicate": "p",
+    "arguments": [
+     {
+      "kind": "constant",
+      "constant_id": "c1"
+     }
+    ],
+    "polarity": "positive"
+   },
+   "aggregation_policy_id": "skeptical-v1"
+  }
+ ],
+ "resource_configs": [
+  {
+   "id": "rc1",
+   "logical_step_limit": 1000,
+   "grounded_application_limit": 1000,
+   "inheritance_path_limit": 1000,
+   "branch_limit": 100,
+   "trace_limit": 5000
+  }
+ ]
+}

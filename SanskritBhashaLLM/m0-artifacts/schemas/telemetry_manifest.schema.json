@@ -1,0 +1,417 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sanskritbhashallm.org/m0/schemas/telemetry_manifest.schema.json",
+  "title": "TelemetryManifest — non-semantic runtime, resource, environment, and labour measurements",
+  "description": "Separate from semantic output (Doc 08 sections 15.3, 21). Measured values need not repeat across runs; the manifest must be complete and carry its own hash. Mandatory zero fields per section 21.5 are const-enforced.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mechanism_version",
+    "run_id",
+    "representation",
+    "execution",
+    "environment",
+    "mandatory_zeros",
+    "telemetry_manifest_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/version_string"
+    },
+    "mechanism_version": {
+      "const": "PDSGRO-0.1"
+    },
+    "run_id": {
+      "$ref": "common.schema.json#/$defs/identifier"
+    },
+    "representation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_objects_by_type",
+        "compiled_objects_by_type",
+        "input_bytes",
+        "output_bytes"
+      ],
+      "properties": {
+        "source_objects_by_type": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "compiled_objects_by_type": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "relations_by_type": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "rules_by_kind": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "strict": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "default": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "input_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compressed_input_bits": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "const": "NOT_CONFIGURED"
+            }
+          ],
+          "description": "Under a named, versioned frozen compressor."
+        },
+        "compressor_identity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "compiled_representation_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "trace_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "diagnostic_tokens": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "const": "NOT_CONFIGURED"
+            }
+          ],
+          "description": "Not an LLM token-efficiency result (Doc 08 section 21.1)."
+        },
+        "diagnostic_tokenizer_identity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_analyses_before_constraints",
+        "live_branches",
+        "conflicts",
+        "deterministic_counters"
+      ],
+      "properties": {
+        "candidate_analyses_before_constraints": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "candidate_analyses_after_constraints": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "active_scopes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "inactive_scopes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "applicable_rules": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fired_rules": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "defeated_rules": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blocked_rules": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "inherited_properties": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blocked_properties": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "live_branches": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "conflicts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "strict_closure_rounds_by_stratum": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "deterministic_counters": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "logical_steps",
+            "grounded_applications",
+            "inheritance_paths",
+            "branches",
+            "trace_events"
+          ],
+          "properties": {
+            "logical_steps": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "grounded_applications": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "inheritance_paths": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "branches": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "trace_events": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "maximum_frontier_size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "validation_cpu_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "compilation_cpu_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "execution_cpu_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "wall_time_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "peak_resident_memory_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "storage_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "resource_limit_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "counter",
+              "limit"
+            ],
+            "properties": {
+              "counter": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "os_identity",
+        "runtime_versions",
+        "cpu_identity",
+        "available_memory_bytes",
+        "configuration_hash",
+        "schema_hash",
+        "mechanism_hash"
+      ],
+      "properties": {
+        "os_identity": {
+          "type": "string"
+        },
+        "runtime_versions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "cpu_identity": {
+          "type": "string"
+        },
+        "available_memory_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "configuration_hash": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        },
+        "schema_hash": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        },
+        "mechanism_hash": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        },
+        "fixture_hash": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        },
+        "source_revision_or_archive_hash": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        }
+      }
+    },
+    "labour": {
+      "description": "Development and expert labour per Doc 08 section 21.4; tagged and reported separately by condition.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "category",
+              "hours",
+              "condition_tag",
+              "stage_tag"
+            ],
+            "properties": {
+              "category": {
+                "enum": [
+                  "mechanism_design",
+                  "neutral_theory_annotation",
+                  "compile_t_engineering",
+                  "control_compiler_engineering",
+                  "interpreter_engineering",
+                  "fixture_authoring",
+                  "hidden_generator_oracle_custody",
+                  "data_licensing_acquisition",
+                  "sanskrit_review",
+                  "methods_review",
+                  "baseline_challenge_reproduction",
+                  "maintenance_rebuild",
+                  "failed_runs"
+                ]
+              },
+              "hours": {
+                "type": "number",
+                "minimum": 0
+              },
+              "condition_tag": {
+                "enum": [
+                  "shared",
+                  "target_specific",
+                  "universal_control",
+                  "generic_control"
+                ]
+              },
+              "stage_tag": {
+                "enum": [
+                  "exploratory",
+                  "reproducible_build",
+                  "recurring_maintenance"
+                ]
+              },
+              "rate_sheet_version": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "mandatory_zeros": {
+      "description": "Doc 08 section 21.5 — M1 is a non-LLM reference interpreter.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_calls",
+        "generated_model_tokens",
+        "accelerator_seconds",
+        "persistent_state_writes",
+        "model_weight_changes"
+      ],
+      "properties": {
+        "model_calls": {
+          "const": 0
+        },
+        "generated_model_tokens": {
+          "const": 0
+        },
+        "accelerator_seconds": {
+          "const": 0,
+          "description": "Accelerator use prohibited in acceptance runs."
+        },
+        "persistent_state_writes": {
+          "const": 0,
+          "description": "Ordinary result, trace, and manifest files allowed."
+        },
+        "model_weight_changes": {
+          "const": 0
+        }
+      }
+    },
+    "telemetry_manifest_hash": {
+      "$ref": "common.schema.json#/$defs/sha256"
+    }
+  }
+}

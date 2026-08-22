@@ -1,0 +1,25 @@
+{
+ "fixture_id": "DQ1-M0-F11-no-valid-analysis",
+ "expected_execution_status": "COMPLETE",
+ "assertions": [
+  {
+   "id": "A1",
+   "property": "query_status[q1]",
+   "expect": "NO_VALID_ANALYSIS",
+   "reason": "constraint c_rej_one rejects the a1 branch; c_rej_two rejects the a2 branch; every constructed branch rejected"
+  },
+  {
+   "id": "A2",
+   "property": "branch_dispositions",
+   "expect": "2 rejections with disposition REJECTED_CONSTRAINT, each naming its constraint"
+  },
+  {
+   "id": "A3",
+   "property": "analysis_status",
+   "expect": "NONE"
+  }
+ ],
+ "invariants_checked": [
+  "trace completeness (11.10)"
+ ]
+}

@@ -1,0 +1,643 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sanskritbhashallm.org/m0/schemas/compiled_instance.schema.json",
+  "title": "Compiled Mechanism Instance I_m = Compile_m(B)",
+  "description": "Condition-specific compiled representation per Doc 08 section 8.2. Every compiled object carries source_refs into B. Structural fields are query- and runtime-context-independent (metamorphic obligations M-Q/M-K).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "instance_id",
+    "compiler_manifest",
+    "source_bundle_hash",
+    "signature",
+    "constants",
+    "facts",
+    "compiled_events",
+    "compiled_role_edges",
+    "analysis_groups",
+    "analyses",
+    "requests",
+    "scopes",
+    "inheritance_edges",
+    "rules",
+    "exceptions",
+    "blocks",
+    "priority_edges",
+    "optional_groups",
+    "constraints",
+    "queries"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/version_string"
+    },
+    "instance_id": {
+      "$ref": "common.schema.json#/$defs/identifier"
+    },
+    "compiler_manifest": {
+      "$ref": "common.schema.json#/$defs/compiler_manifest"
+    },
+    "source_bundle_hash": {
+      "$ref": "common.schema.json#/$defs/sha256"
+    },
+    "signature": {
+      "$ref": "source_bundle.schema.json#/properties/signature",
+      "description": "Identical to the source signature; compilation may not extend Sigma."
+    },
+    "constants": {
+      "$ref": "source_bundle.schema.json#/properties/constants",
+      "description": "Identical to V; no rule-generated object identifiers."
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "predicate",
+          "arguments",
+          "polarity",
+          "scope_id",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "predicate": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/term_constant"
+            }
+          },
+          "polarity": {
+            "$ref": "common.schema.json#/$defs/polarity"
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "analysis_groups": {
+      "description": "Section 9 CompiledAnalysisGroup rows.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "selection_cardinality_equals_one",
+          "member_analysis_ids",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "selection_cardinality_equals_one": {
+            "const": true
+          },
+          "member_analysis_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "minItems": 2
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "request_context",
+          "scope_anchor",
+          "query_ids",
+          "resource_config_id",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "request_context": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "domain": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              },
+              "register": {
+                "type": "string"
+              },
+              "fictional_world": {
+                "type": "string"
+              }
+            }
+          },
+          "scope_anchor": {
+            "$ref": "common.schema.json#/$defs/identifier",
+            "description": "Exactly one compiled scope anchor per request (Doc 08 section 10.3)."
+          },
+          "query_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "minItems": 1
+          },
+          "resource_config_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "scopes": {
+      "description": "S_m: finite rooted scope forest; each non-root scope has exactly one parent.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "activation_condition",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "parent_id_or_null": {
+            "oneOf": [
+              {
+                "$ref": "common.schema.json#/$defs/identifier"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "activation_condition": {
+            "$ref": "common.schema.json#/$defs/condition",
+            "description": "Evaluated on request context, branch analysis bindings, and GLOBAL-sourced facts only."
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "inheritance_edges": {
+      "description": "H_m: finite directed acyclic inheritance graph with per-edge property permissions.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "source_scope_or_object",
+          "target_scope_or_object",
+          "permitted_properties",
+          "scope_id",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "source_scope_or_object": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "target_scope_or_object": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "permitted_properties": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "minItems": 1
+          },
+          "condition": {
+            "$ref": "common.schema.json#/$defs/condition"
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "rules": {
+      "description": "R_m: range-restricted rules. Kinds are strict and default only (Doc 08 section 9.1).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "body",
+          "head",
+          "scope_id",
+          "stratum",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "kind": {
+            "enum": [
+              "strict",
+              "default"
+            ]
+          },
+          "body": {
+            "$ref": "common.schema.json#/$defs/condition"
+          },
+          "head": {
+            "$ref": "common.schema.json#/$defs/literal"
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "stratum": {
+            "$ref": "common.schema.json#/$defs/stratum"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "exceptions": {
+      "description": "E_m: grounded exceptions targeting exact (rule_id, substitution) pairs.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "condition",
+          "target_rule_id",
+          "target_substitution_pattern",
+          "scope_id",
+          "evaluation_stratum",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "condition": {
+            "$ref": "common.schema.json#/$defs/condition"
+          },
+          "target_rule_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "target_substitution_pattern": {
+            "$ref": "common.schema.json#/$defs/substitution_pattern"
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "evaluation_stratum": {
+            "$ref": "common.schema.json#/$defs/stratum"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "blocks": {
+      "description": "X_m: property-specific inheritance blocks.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "property_or_relation",
+          "target_edge_ids_or_path_pattern",
+          "condition",
+          "evaluation_stratum",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "property_or_relation": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "target_edge_ids_or_path_pattern": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "minItems": 1
+          },
+          "condition": {
+            "$ref": "common.schema.json#/$defs/condition"
+          },
+          "evaluation_stratum": {
+            "$ref": "common.schema.json#/$defs/stratum"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "priority_edges": {
+      "description": "P_m: acyclic conditional precedence over matched grounded default applications with exact-complement heads.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "higher_rule_id",
+          "lower_rule_id",
+          "shared_argument_alignment",
+          "scope_id",
+          "evaluation_stratum",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "higher_rule_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "lower_rule_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "higher_substitution_pattern": {
+            "$ref": "common.schema.json#/$defs/substitution_pattern"
+          },
+          "lower_substitution_pattern": {
+            "$ref": "common.schema.json#/$defs/substitution_pattern"
+          },
+          "shared_argument_alignment": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "condition": {
+            "$ref": "common.schema.json#/$defs/condition"
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "evaluation_stratum": {
+            "$ref": "common.schema.json#/$defs/stratum"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "optional_groups": {
+      "description": "O_m: non-overlapping bounded optional-choice groups.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "member_rule_ids",
+          "minimum_choices",
+          "maximum_choices",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "member_rule_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "minItems": 2
+          },
+          "minimum_choices": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "maximum_choices": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "constraints": {
+      "description": "Z_m: hard constraints evaluated at their declared stratum; matching branches are rejected.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "condition",
+          "scope_id",
+          "evaluation_stratum",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "condition": {
+            "$ref": "common.schema.json#/$defs/condition"
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "evaluation_stratum": {
+            "$ref": "common.schema.json#/$defs/stratum"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "queries": {
+      "$ref": "source_bundle.schema.json#/properties/queries"
+    },
+    "resource_configs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/resource_config"
+      }
+    },
+    "compiled_events": {
+      "description": "Section 9 CompiledEvent rows.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "predicate_concept_id",
+          "participant_edges",
+          "scope_id",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "predicate_concept_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "participant_edges": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            }
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "compiled_role_edges": {
+      "description": "Section 9 CompiledRoleEdge rows.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "event_id",
+          "entity_or_event_id",
+          "role_type",
+          "scope_id",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "event_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "entity_or_event_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "role_type": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          }
+        }
+      }
+    },
+    "analyses": {
+      "description": "Section 9 CompiledAnalysis rows.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "group_id",
+          "bindings",
+          "scope_id",
+          "source_refs"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "group_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "bindings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "variable",
+                "constant_id"
+              ],
+              "properties": {
+                "variable": {
+                  "$ref": "common.schema.json#/$defs/identifier"
+                },
+                "constant_id": {
+                  "$ref": "common.schema.json#/$defs/identifier"
+                }
+              }
+            }
+          },
+          "compatibility_constraints": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/condition"
+            }
+          },
+          "scope_id": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          },
+          "source_refs": {
+            "$ref": "common.schema.json#/$defs/source_refs"
+          },
+          "assumed_fact_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/identifier"
+            },
+            "description": "Facts from F_N that hold only in branches selecting this analysis (branch-local assumptions; drives sense-dependent classification, e.g. fixture F16)."
+          }
+        }
+      }
+    }
+  }
+}

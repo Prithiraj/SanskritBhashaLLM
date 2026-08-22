@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.1", "bundle_id": "f01_scope_inactive",
+  "signature": {
+    "types": ["entity"],
+    "predicates": [
+      {"name": "special_mode_active", "arg_types": []},
+      {"name": "secret_fact", "arg_types": ["entity"]},
+      {"name": "sibling_fact", "arg_types": ["entity"]},
+      {"name": "inside_special", "arg_types": ["entity"]},
+      {"name": "leaked", "arg_types": ["entity"]}
+    ],
+    "relation_types": [], "permitted_comparisons": []
+  },
+  "constants": [
+    {"id": "n1", "entity_type": "entity"},
+    {"id": "n2", "entity_type": "entity"}
+  ],
+  "concepts": [],
+  "context_keys": [
+    {"id": "ctx_main", "representation_neutral_definition": "default evaluation context"},
+    {"id": "ctx_special", "representation_neutral_definition": "special mode context, inactive unless special_mode_active holds"},
+    {"id": "ctx_sibling", "representation_neutral_definition": "off-path sibling context"}
+  ],
+  "anchor_intents": [
+    {"id": "anchor_special", "observable_semantic_context": "request targets special mode", "context_key_refs": ["ctx_special"]}
+  ],
+  "facts": [
+    {"id": "f_neg_mode", "predicate": "special_mode_active", "arguments": [], "polarity": "negative", "context_key": "GLOBAL"},
+    {"id": "f_secret", "predicate": "secret_fact", "arguments": [{"kind": "constant", "constant_id": "n1"}], "polarity": "positive", "context_key": "ctx_special"},
+    {"id": "f_sib", "predicate": "sibling_fact", "arguments": [{"kind": "constant", "constant_id": "n2"}], "polarity": "positive", "context_key": "ctx_sibling"}
+  ],
+  "neutral_events": [], "neutral_role_edges": [],
+  "analysis_groups": [], "analyses": [],
+  "requests": [
+    {"id": "req1", "request_context": {"domain": "clean-room"}, "anchor_intent_id": "anchor_special", "query_ids": ["q1", "q2"], "resource_config_id": "rc1"}
+  ],
+  "task_theory": {
+    "strict_rules": [
+      {"claim_id": "r_secret", "body": {"literals": [{"predicate": "secret_fact", "args": [{"kind": "variable", "variable": "X"}], "polarity": "positive"}]}, "head": {"predicate": "inside_special", "args": [{"kind": "variable", "variable": "X"}], "polarity": "positive"}},
+      {"claim_id": "r_sib", "body": {"literals": [{"predicate": "sibling_fact", "args": [{"kind": "variable", "variable": "X"}], "polarity": "positive"}]}, "head": {"predicate": "leaked", "args": [{"kind": "variable", "variable": "X"}], "polarity": "positive"}}
+    ],
+    "defaults": []
+  },
+  "queries": [
+    {"id": "q1", "proposition": {"predicate": "inside_special", "arguments": [{"kind": "constant", "constant_id": "n1"}], "polarity": "positive"}, "aggregation_policy_id": "skeptical-v1"},
+    {"id": "q2", "proposition": {"predicate": "leaked", "arguments": [{"kind": "constant", "constant_id": "n2"}], "polarity": "positive"}, "aggregation_policy_id": "skeptical-v1"}
+  ],
+  "resource_configs": [
+    {"id": "rc1", "logical_step_limit": 1000, "grounded_application_limit": 1000, "inheritance_path_limit": 1000, "branch_limit": 100, "trace_limit": 5000}
+  ]
+}
